@@ -1,0 +1,22 @@
+<footer>
+    <div class="container footer-inner">
+      <div class="logo">
+        <a href="/"><img src="/images/vibelink-logo.png" alt="VibeLink Logo"></a>
+      </div>
+      <p>&copy; <%= new Date().getFullYear() %> VibeLink Community Portal</p>
+    </div>
+  </footer>
+  
+  <!-- sticky header toggle script -->
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const header = document.getElementById('site-header');
+      const heroHeight = window.innerHeight;
+      window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > heroHeight - 50);
+      });
+    });
+  </script>
+  </body>
+  </html>
+  
