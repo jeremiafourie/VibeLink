@@ -66,6 +66,6 @@ app.use((req, res) => {
 });
 
 // Start server
-app.listen(PORT, () => {
-  console.log(`VibeLink is running on http://localhost:${PORT}`);
+app.listen(port, () => {
+  console.log(`VibeLink is running on http://localhost:${port}`);
 });
