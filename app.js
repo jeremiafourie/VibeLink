@@ -40,12 +40,32 @@ const events = [
 // Contact form submissions
 const submissions = [];
 
-app.use(express.static(path.join(__dirname, "public")));
-app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "views"));
+// --------------- App Configuration ---------------
 
-app.use("/", pageRoutes);
+// Set EJS as view engine
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
-app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
+// Serve static assets
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Parse URL-encoded bodies (for form submissions)
+app.use(express.urlencoded({ extended: true }));
+
+// Make data available in routes via app.locals
+app.locals.team = teamMembers;
+app.locals.events = events;
+app.locals.submissions = submissions;
+
+// Use modular routes
+app.use('/', pageRoutes);
+
+// Basic 404 handler
+app.use((req, res) => {
+  res.status(404).send('Page Not Found');
+});
+
+// Start server
+app.listen(PORT, () => {
+  console.log(`VibeLink is running on http://localhost:${PORT}`);
 });
