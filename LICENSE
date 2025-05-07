@@ -1,21 +1,19 @@
-MIT License
+Private License for University Group Project
 
-Copyright (c) 2025 Jeremia Fourie
+University: Belgium Campus
+Module: WPR381
+Project: Dynamic Community Portal Website using Node.js, Express & EJS
+Group: WPR381 P2-PM No. 5
+Members: Jeremia Fourie, Waldo Blom, Itumeleng Monokoane, Onalerona Lefoka
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Copyright © 2025 Group WPR381 P2-PM No. 5, Belgium Campus
+All rights reserved.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+1. Ownership
+This project, including all code, documentation, and related resources, is the exclusive property of Group WPR381 P2-PM No. 5 at Belgium Campus. No ownership rights are transferred through any distribution or access.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+2. Restrictions on Use & Distribution
+This project is strictly private and not for public distribution.
+- No part of this repository may be shared, copied, modified, or used by external parties without explicit, written consent from all members of Group WPR381 P2-PM No. 5.
+- This work is intended solely for academic use within the Belgium Campus WPR381 module.
+- Unauthorized publication, commercial use, or external reproduction is prohibited.
