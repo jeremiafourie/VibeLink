@@ -1,1 +1,18 @@
-<h1>Welcome to the Community Portal</h1>
+<%- include('../partials/header', { title: 'Home' }) %>
+
+<main>
+  <section id="upcoming" class="events">
+    <h2>Upcoming Events</h2>
+    <div class="events-grid">
+      <% upcomingEvents.forEach(event => { %>
+        <div class="event-card">
+          <img src="/images/<%= event.image %>" alt="<%= event.title %>">
+          <h3><%= event.title %></h3>
+          <p><%= event.date %> | <%= event.location %></p>
+        </div>
+      <% }) %>
+    </div>
+  </section>
+</main>
+
+<%- include('../partials/footer') %>
