@@ -10,9 +10,10 @@ const port = process.env.PORT || 3000;
 // --------------- In-memory data stores ---------------
 // Team information
 const teamMembers = [
-  { name: "Alice Johnson", role: "Coordinator" },
-  { name: "Bob Smith", role: "Event Manager" },
-  { name: "Carol Lee", role: "Marketing Lead" }
+  { name: "Jeremia Fourie", role: "Backend Developer" },
+  { name: "Waldo Blom", role: "Frontend Developer" },
+  { name: "Itumeleng Monokoane", role: "Documentation Manager" },
+  { name: "Onalerona Lefoka", role: "Data Manager"}
 ];
 
 // Upcoming events
