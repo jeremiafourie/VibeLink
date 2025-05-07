@@ -1,0 +1,351 @@
+/* style.css – Video‐in‐header + dynamic header height + elegant gradient accents */
+
+/* Link to the color scheme: https://www.realtimecolors.com/?colors=efe7f3-0b070d-11bdff-7d50ff-b12ff7&fonts=Noto%20Sans%20KR-Noto%20Sans%20KR */
+
+/*======================================
+  1) Variables & Reset
+======================================*/
+:root {
+    --gradient-start: #00C6FF;
+    --gradient-end:   #8E2DE2;
+    --text-light:     #ffffff;
+    --bg-light:       #f9f9f9;
+    --accent:         #222;
+    --header-height:  80px;  /* nav‐bar height */
+  
+    --text-50: #f4eef6;
+    --text-100: #e8ddee;
+    --text-200: #d2bbdd;
+    --text-300: #bb99cc;
+    --text-400: #a477bb;
+    --text-500: #8e55aa;
+    --text-600: #714488;
+    --text-700: #553366;
+    --text-800: #392244;
+    --text-900: #1c1122;
+    --text-950: #0e0911;
+  
+    --background-50: #f4eef6;
+    --background-100: #e8deed;
+    --background-200: #d1bddb;
+    --background-300: #ba9cc9;
+    --background-400: #a37ab8;
+    --background-500: #8c59a6;
+    --background-600: #704785;
+    --background-700: #543663;
+    --background-800: #382442;
+    --background-900: #1c1221;
+    --background-950: #0e0911;
+  
+    --primary-50: #e5f8ff;
+    --primary-100: #ccf1ff;
+    --primary-200: #99e2ff;
+    --primary-300: #66d4ff;
+    --primary-400: #33c5ff;
+    --primary-500: #00b7ff;
+    --primary-600: #0092cc;
+    --primary-700: #006e99;
+    --primary-800: #004966;
+    --primary-900: #002533;
+    --primary-950: #00121a;
+  
+    --secondary-50: #ece5ff;
+    --secondary-100: #d9ccff;
+    --secondary-200: #b399ff;
+    --secondary-300: #8c66ff;
+    --secondary-400: #6633ff;
+    --secondary-500: #4000ff;
+    --secondary-600: #3300cc;
+    --secondary-700: #260099;
+    --secondary-800: #1a0066;
+    --secondary-900: #0d0033;
+    --secondary-950: #06001a;
+  
+    --accent-50: #f6e6fe;
+    --accent-100: #edcefd;
+    --accent-200: #da9dfb;
+    --accent-300: #c86bfa;
+    --accent-400: #b53af8;
+    --accent-500: #a309f6;
+    --accent-600: #8207c5;
+    --accent-700: #620594;
+    --accent-800: #410462;
+    --accent-900: #210231;
+    --accent-950: #100119;
+  }
+  
+  
+  /* Fonts */
+  @import url('https://fonts.googleapis.com/css?family=Noto%20Sans%20KR:700|Noto%20Sans%20KR:400');
+  
+  body {
+    font-family: 'Noto Sans KR';
+    font-weight: 400;
+  }
+  
+  h1, h2, h3, h4, h5 {
+    font-family: 'Noto Sans KR';
+    font-weight: 700;
+  }
+  
+  html {font-size: 100%;} /* 16px */
+  
+  h1 {font-size: 4.210rem; /* 67.36px */}
+  
+  h2 {font-size: 3.158rem; /* 50.56px */}
+  
+  h3 {font-size: 2.369rem; /* 37.92px */}
+  
+  h4 {font-size: 1.777rem; /* 28.48px */}
+  
+  h5 {font-size: 1.333rem; /* 21.28px */}
+  
+  small {font-size: 0.750rem; /* 12px */}
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: var(--bg-light);
+    color: var(--accent);
+  }
+  
+  .container {
+    margin: 0 0;
+    padding: 1rem 1rem;
+    width: 100%;
+  }
+  
+  /*======================================
+    2) Header Base
+  ======================================*/
+  header#site-header {
+    position: relative;
+    overflow: hidden;
+    /* on home: full viewport; on other pages: auto height */
+    background: rgba(0,0,0,0.3);
+  }
+  header#site-header.home-header {
+    height: 100vh;
+  }
+  header#site-header.page-header {
+    height: auto;
+  }
+  
+  /*======================================
+    3) Background Video
+  ======================================*/
+  .header-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+  
+  /*======================================
+    4) Nav + Logo (“Gradient Pill”)
+  ======================================*/
+  .header-inner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* height: var(--header-height); */
+  }
+  .logo {
+    /* background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end)); */
+    border-radius: 8px;
+  }
+  .logo img {
+    width: 230px;
+    height: 150px;
+    display: block;
+    /* padding-top: 20px; */
+  }
+  
+  .header-inner nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+  }
+  .header-inner nav a {
+    color: var(--text-light);
+    font-weight: 600;
+    transition: background 0.3s;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+  }
+  .header-inner nav a:hover,
+  .header-inner nav a:focus {
+    background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+  }
+  
+  /*======================================
+    5) Hero Overlay (Home)
+  ======================================*/
+  .hero-overlay-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-light);
+    padding: 0 1rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+  }
+  .btn-primary {
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+    color: var(--text-light);
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  /*======================================
+    6) Page Title (Other Pages)
+  ======================================*/
+  .page-title {
+    position: relative;
+    z-index: 1;
+    padding-bottom: 1rem;
+    text-align: center;
+    color: var(--text-light);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+  }
+  
+  /*======================================
+    7) Main Content & Sections
+  ======================================*/
+  main,
+  section:not(.home-hero) {
+    background: #ffffff;
+    margin: 1rem 0;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  
+  /*======================================
+    8) Event Cards
+  ======================================*/
+  .events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+  .event-card {
+    background: #fafafa;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: transform 0.2s;
+  }
+  .event-card:hover {
+    transform: translateY(-4px);
+  }
+  .event-card img {
+    width: 100%;
+  }
+  .event-card h3,
+  .event-card p {
+    margin: 0.5rem 1rem;
+  }
+  
+  /*======================================
+    9) Team List
+  ======================================*/
+  .team-list {
+    list-style: none;
+    margin-top: 1rem;
+  }
+  .team-list li {
+    background: #fafafa;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    border-left: 4px solid var(--gradient-start);
+    border-radius: 4px;
+  }
+  
+  /*======================================
+   10) Contact Form
+  ======================================*/
+  .contact-page form {
+    max-width: 600px;
+    margin: auto;
+    display: grid;
+    gap: 1rem;
+  }
+  .contact-page label {
+    font-weight: bold;
+  }
+  .contact-page input,
+  .contact-page textarea {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .contact-page button {
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+    color: var(--text-light);
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .contact-page button:hover {
+    opacity: 0.85;
+  }
+  
+  /*======================================
+   11) Footer
+  ======================================*/
+  footer {
+    background: #ffffff;
+  }
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+  }
+  .footer-inner .logo img {
+    height: 32px;
+  }
+  footer p {
+    color: var(--accent);
+    font-size: 0.9rem;
+  }
+  
+  /*======================================
+   12) Responsive
+  ======================================*/
+  @media (max-width: 768px) {
+    .header-inner,
+    .footer-inner {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .events-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
