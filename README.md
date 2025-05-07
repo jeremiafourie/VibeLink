@@ -1,2 +1,11 @@
-# VibeLink
-A dynamic community portal website built with Node.js, Express, and EJS, featuring event listings, a contact form, and team info.
+# Community Portal Project
+
+## Overview
+
+Starter boilerplate for a Node.js + Express + EJS website.
+
+## Instructions
+
+1. Run `npm install` to install dependencies.
+2. Use `npm run dev` to start the development server with nodemon.
+3. Add your own route handlers and middleware as needed.
