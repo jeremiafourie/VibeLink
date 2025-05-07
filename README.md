@@ -17,10 +17,10 @@ A dynamic community portal website built with Node.js, Express, and EJS.
 
 ## Team Members and Roles
 
-- Jeremia Fourie (Backend)
-- Waldo Blom
-- Itumeleng Monokoane
-- Onalerona Lefoka
+- Jeremia Fourie (577881): Backend Developer
+- Waldo Blom (578068): Frontend Developer
+- Itumeleng Monokoane (600271): Documentation Manager
+- Onalerona Lefoka (600453): Data Manager
 
 ## Setup Instructions
 
