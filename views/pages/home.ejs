@@ -1,18 +1,67 @@
-<%- include('../partials/header', { title: 'Home' }) %>
+<%- include('../partials/header') %>
 
-<main>
-  <section id="upcoming" class="events">
-    <h2>Upcoming Events</h2>
-    <div class="events-grid">
-      <% upcomingEvents.forEach(event => { %>
-        <div class="event-card">
-          <img src="/images/<%= event.image %>" alt="<%= event.title %>">
-          <h3><%= event.title %></h3>
-          <p><%= event.date %> | <%= event.location %></p>
-        </div>
-      <% }) %>
-    </div>
-  </section>
-</main>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../public/css/home.css">
+
+</head>
+<section class="hero">
+  <div class="container">
+      <div class="hero-content">
+          <h1>Welcome to our Community</h1>
+          <p>Where people with the same vibe can get together</p>
+          <div class="hero-buttons">
+              <a href="/events" class="btn btn-primary">Explore Events</a>
+              <a href="/about" class="btn btn-secondary">Learn More</a>
+          </div>
+      </div>
+  </div>
+</section>
+
+<section class="featured-events">
+  <div class="container">
+      <div class="section-header">
+          <h2>Upcoming Events</h2>
+          <p>Join us at these upcoming community gatherings</p>
+      </div>
+      
+      <div class="events-grid">
+        <% if (featuredEvents.length > 0) { %>
+          <% featuredEvents.forEach(event => { %>
+            <div class="event-card">
+              <div class="event-image">
+                <img src="<%= event.image %>" alt="<%= event.title %>">
+              </div>
+              <div class="event-details">
+                <h3><%= event.title %></h3>
+                <div class="event-meta">
+                  <p> <%= event.date %></p>
+                  <p> <%= event.location %></p>
+                </div>
+                <p class="event-description"><%= event.description %></p>
+              </div>
+            </div>
+          <% }); %>
+        <% } else { %>
+          <p class="no-events">No upcoming events at this time. Check back soon!</p>
+        <% } %>
+      </div>
+      
+      <div class="view-all">
+          <a href="/events" class="btn btn-outline">View All Events</a>
+      </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container">
+      <div class="cta-content">
+          <h2>Join Our Community Today</h2>
+          <p>Be part of something bigger and make lasting connections</p>
+          <a href="/contact" class="btn btn-primary">Get Involved</a>
+      </div>
+  </div>
+</section>
 
 <%- include('../partials/footer') %>

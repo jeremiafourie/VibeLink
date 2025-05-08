@@ -19,22 +19,25 @@ const teamMembers = [
 // Upcoming events
 const events = [
   {
-    title: "Art Workshop",
-    date: "2025-05-15",
-    location: "Community Center",
-    image: "art.jpg"
+    title: 'Annual Community Festival',
+    date: '2025-06-01',
+    location: 'Central Park',
+    description: 'Join us for a day of music, food, and activities that celebrate our diverse community.',
+    image: "/images/community_festival.jpg"
   },
   {
     title: "Tech Talk",
     date: "2025-06-01",
     location: "Town Hall",
-    image: "tech.jpg"
+    description: 'Join us for a day of music, food, and activities that celebrate our diverse community.',
+    image: "/images/tech_talk.jpg"
   },
   {
     title: "Music Festival",
     date: "2025-07-20",
     location: "Central Park",
-    image: "music.jpg"
+    description: 'Join us for a day of music, food, and activities that celebrate our diverse community.',
+    image: "/images/music_festival.jpg"
   }
 ];
 

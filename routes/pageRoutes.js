@@ -5,8 +5,11 @@ const router = express.Router();
 
 // Home page – show 2 upcoming events
 router.get('/', (req, res) => {
-  const upcomingEvents = req.app.locals.events.slice(0, 2);
-  res.render('pages/home', { upcomingEvents });
+  const featuredEvents = req.app.locals.events.slice(0, 3); //Load the first three upcoming events
+  res.render('pages/home', { 
+    title: 'Home',
+    featuredEvents
+  });
 });
 
 // About page – list team members

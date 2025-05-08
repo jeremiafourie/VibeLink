@@ -7,13 +7,6 @@
 </head>
 <body class="<%= title.toLowerCase() %>">
 
-<header id="site-header" class="<%= title === 'Home' ? 'home-header' : 'page-header' %>">
-  <!-- background video now lives in the header -->
-  <video class="header-video" autoplay muted loop>
-    <source src="/videos/bg.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-
   <div class="header-inner container">
     <div class="logo">
       <a href="/"><img src="/images/vibelink-logo.png" alt="VibeLink Logo"></a>
@@ -28,17 +21,4 @@
     </nav>
   </div>
 
-  <% if (title === 'Home') { %>
-    <!-- full‐screen hero content on home -->
-    <div class="hero-overlay-content">
-      <h1>Welcome to VibeLink</h1>
-      <p>Your hub for community events and connections!</p>
-      <a href="#upcoming" class="btn-primary">See Upcoming Events</a>
-    </div>
-  <% } else { %>
-    <!-- simple page title on other pages -->
-    <div class="page-title">
-      <h1><%= title %></h1>
-    </div>
-  <% } %>
 </header>
