@@ -2,6 +2,16 @@
 
 /* Link to the color scheme: https://www.realtimecolors.com/?colors=efe7f3-0b070d-11bdff-7d50ff-b12ff7&fonts=Noto%20Sans%20KR-Noto%20Sans%20KR */
 
+/*import all the css files to this css file to make the loading of css files simpler*/
+@import url('./about.css');
+@import url('./common.css');
+@import url('./contact.css');
+@import url('./events.css');
+@import url('./footer.css');
+@import url('./header.css');
+@import url('./home.css');
+@import url('./tankyou.css');
+
 /*======================================
   1) Variables & Reset
 ======================================*/
