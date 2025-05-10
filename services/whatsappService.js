@@ -1,8 +1,3 @@
-const Uazapi = require('uazapi');
-
-const client = new Uazapi({
-  apiKey: process.env.UAZAPI_KEY
-});
 
 /**
  * Send a WhatsApp message via Uazapi.
@@ -10,11 +5,8 @@ const client = new Uazapi({
  * @param {string} text — message body
  */
 async function sendWhatsApp(to, text) {
-  return client.messages.send({
-    channel: 'whatsapp',
-    to,
-    text
-  });
+  console.log("TODO: Sending WhatsApp")
+  return
 }
 
 module.exports = { sendWhatsApp };
