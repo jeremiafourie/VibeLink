@@ -21,7 +21,9 @@ router.get('/about', (req, res) => {
 // Events page – list all events
 router.get('/events', (req, res) => {
   const events = req.app.locals.events;
-  res.render('pages/events', { events });
+  res.render('pages/events', { 
+    title: 'Events',
+    events });
 });
 
 // Contact page – display contact form

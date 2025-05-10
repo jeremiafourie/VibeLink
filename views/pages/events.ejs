@@ -1,2 +1,82 @@
-<h1>Upcoming Events</h1>
-<p>Check out what's happening soon!</p>
+<%- include('../partials/header') %>
+
+<section class="events-section">
+  <div class="container">
+    <div class="events-intro">
+      <p>Our community thrives on connection and shared experiences. Browse our upcoming events and join us in building a stronger community together.</p>
+    </div>
+
+    <div class="events-filter">
+      <div class="filter-controls">
+        <button class="filter-btn active" data-filter="all">All Events</button>
+        <button class="filter-btn" data-filter="Workshop">Workshops</button>
+        <button class="filter-btn" data-filter="Community">Community</button>
+        <button class="filter-btn" data-filter="Family">Family</button>
+      </div>
+    </div>
+
+    <div class="events-grid">
+      <% if (events.length > 0) { %>
+        <% events.forEach(event => { %>
+          <div class="event-card" data-category="<%= event.eventCategory %>">
+            <div class="event-image">
+              <img src="<%= event.image %>" alt="<%= event.title %>">
+              <div class="event-day">
+                <span><%= new Date(event.date).toLocaleDateString('en-US', { weekday: 'long' }) %></span>
+              </div>
+            </div>
+            <div class="event-details">
+              <h3><%= event.title %></h3>
+              <div class="event-meta">
+                <p><%= event.date %></p>
+                <p><%= event.location %></p>
+              </div>
+              <p class="event-description"><%= event.description %></p>
+            </div>
+          </div>
+        <% }); %>
+      <% } else { %>
+        <p class="no-events">No upcoming events at this time. Check back soon!</p>
+      <% } %>
+    </div>
+  </div>
+</section>
+
+<section class="host-event">
+  <div class="container">
+    <div class="host-info">
+      <h2>Host Your Own Event</h2>
+      <p>Have an idea for a community event? We welcome community members to propose and host events that align with our mission.</p>
+      <a href="/contact" class="btn btn-primary">Submit Your Idea</a>
+    </div>
+  </div>
+</section>
+
+
+<%- include('../partials/footer') %>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const eventItems = document.querySelectorAll('.event-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filterValue = btn.dataset.filter; 
+
+        eventItems.forEach(item => {
+          // Get the category
+          const category = item.dataset.category; 
+          if (filterValue === 'all' || category === filterValue) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+  });
+</script>
