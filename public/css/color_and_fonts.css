@@ -72,18 +72,18 @@
   }
   
   
-  /* Fonts */
-  @import url('https://fonts.googleapis.com/css?family=Noto%20Sans%20KR:700|Noto%20Sans%20KR:400');
-  
-  body {
-    font-family: 'Noto Sans KR';
-    font-weight: 400;
-  }
-  
-  h1, h2, h3, h4, h5 {
-    font-family: 'Noto Sans KR';
-    font-weight: 700;
-  }
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 700;
+}
   
   html {font-size: 100%;} /* 16px */
   

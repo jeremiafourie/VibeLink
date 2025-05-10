@@ -27,8 +27,7 @@ footer .container {
 }
 
 .footer-logo img {
-  max-height: 50px;
-  margin-bottom: 16px;
+  max-height: 70px;
 }
 
 .footer-logo h3 {
@@ -42,11 +41,6 @@ footer .container {
   font-size: 0.95rem;
 }
 
-.footer-logo i {
-  font-size: 2rem;
-  margin-bottom: 16px;
-  color: #3B82F6;
-}
 
 .footer-links h4,
 .footer-social h4 {
