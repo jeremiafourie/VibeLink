@@ -75,7 +75,7 @@
   max-width: 32rem;
   margin: 0 auto;
   padding: 0.5rem;
-  background-color: var(--white);
+   background: #ffffff;
   border-radius: 0.5rem;
 }
 

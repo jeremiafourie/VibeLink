@@ -21,10 +21,7 @@
   
   body {
     line-height: 1.6;
-    background-color: var(--bg-light);
-    color: var(--accent);
   }
-  
 
   /*======================================
     6) Page Title (Other Pages)
@@ -41,8 +38,7 @@
   /*======================================
     7) Main Content & Sections
   ======================================*/
-  main,
-  section:not(.home-hero) {
+  section:not([class*="home-hero"]) {
     background: #ffffff;
     margin: 1rem 0;
     padding: 2rem;
