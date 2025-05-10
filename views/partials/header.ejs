@@ -2,23 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>VibeLink – <%= title %></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %> | VibeLink</title>
   <link rel="stylesheet" href="/css/style.css">
 </head>
-<body class="<%= title.toLowerCase() %>">
-
-  <div class="header-inner container">
-    <div class="logo">
-      <a href="/"><img src="/images/vibelink-logo.png" alt="VibeLink Logo"></a>
+<body>
+  <header id="main-header">
+    <div class="container">
+      <div class="logo">
+        <a href="/">
+          <img src="" alt="VibeLink image logo">
+          <span>- Community Portal</span>
+        </a>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="/" class="<%= title === 'Home' ? 'active' : '' %>">Home</a></li>
+          <li><a href="/about" class="<%= title === 'About Us' ? 'active' : '' %>">About</a></li>
+          <li><a href="/events" class="<%= title === 'Events' ? 'active' : '' %>">Events</a></li>
+          <li><a href="/contact" class="<%= title === 'Contact Us' ? 'active' : '' %>">Contact</a></li>
+          <li><button class="login-btn">Log in</button></li>
+        </ul>
+      </nav>
     </div>
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/events">Events</a></li>
-        <li><a href="/contact">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-
-</header>
+  </header>
+  <main>

@@ -1,7 +1,5 @@
 /* Root Variables */
 :root {
-  --primary-color: #2563eb; 
-  --primary-dark: #1d4ed8;  
   --white: #ffffff;
   --border-radius: 0.25rem;
   --transition: all 0.3s ease;
