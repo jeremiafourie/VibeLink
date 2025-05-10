@@ -23,7 +23,7 @@ exports.submit = async (req, res, next) => {
       `Name: ${name}\nEmail: ${email}\nPhone: ${phone || 'n/a'}\n\nMessage:\n${message}`
     );
     
-    // 4) (optional) send confirmation email back to user
+    // 4) Send confirmation email back to user
     await sendEmail(
       email,
       `Thanks for contacting VibeLink`,
