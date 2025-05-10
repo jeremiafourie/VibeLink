@@ -94,7 +94,7 @@ const events = [
     title: "Community Gardening",
     date: "2025-11-15",
     location: "Greenfield Community Garden",
-    description: "Plant, weed, and harvest together to grow fresh produce for the neighborhood.",
+    description: "Plant and harvest together to grow fresh produce for the neighborhood.",
     eventCategory: "Community",
     image: "/images/community_gardening.jpg"
   }
