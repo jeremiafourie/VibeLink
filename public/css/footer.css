@@ -1,0 +1,127 @@
+/* Variables */
+:root {
+  --white: #ffffff;
+  --primary-color: #3B82F6;
+  --primary-light: #60A5FA;
+  --transition: all 0.3s ease;
+}
+
+/* Footer */
+footer {
+  background-color: #1F2937;
+  color: #ffffff;
+  padding: 64px 0 32px;
+}
+
+footer .container {
+  width: 85%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 48px;
+  margin-bottom: 48px;
+}
+
+.footer-logo img {
+  max-height: 50px;
+  margin-bottom: 16px;
+}
+
+.footer-logo h3 {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  color: #ffffff;
+}
+
+.footer-logo p {
+  color: #9CA3AF;
+  font-size: 0.95rem;
+}
+
+.footer-logo i {
+  font-size: 2rem;
+  margin-bottom: 16px;
+  color: #3B82F6;
+}
+
+.footer-links h4,
+.footer-social h4 {
+  color: #60A5FA;
+  margin-bottom: 24px;
+  position: relative;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.footer-links h4::after,
+.footer-social h4::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background-color: #3B82F6;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links ul li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: #9CA3AF;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+}
+
+.footer-social .social-icons {
+  margin-top: 16px;
+  display: flex;
+  gap: 16px;
+}
+
+.footer-social .social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.footer-social .social-icons svg {
+  width: 24px;
+  height: 24px;
+}
+
+.footer-social .social-icons a:hover svg path {
+  fill: #ffffff;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 32px;
+  border-top: 1px solid #374151;
+  color: #9CA3AF;
+  font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
