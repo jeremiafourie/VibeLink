@@ -19,25 +19,84 @@ const teamMembers = [
 // Upcoming events
 const events = [
   {
-    title: 'Annual Community Festival',
-    date: '2025-06-01',
-    location: 'Central Park',
-    description: 'Join us for a day of music, food, and activities that celebrate our diverse community.',
-    image: "/images/community_festival.jpg"
+    title: "Community Picnic",
+    date: "2025-06-15",
+    location: "Riverside Park",
+    description: "Bring your favorite dish and enjoy a fun-filled afternoon with neighbors and friends.",
+    eventCategory: "Community",
+    image: "/images/community_picnic.jpg"
   },
   {
-    title: "Tech Talk",
-    date: "2025-06-01",
-    location: "Town Hall",
-    description: 'Join us for a day of music, food, and activities that celebrate our diverse community.',
-    image: "/images/tech_talk.jpg"
+    title: "Woodworking Workshop",
+    date: "2025-08-10",
+    location: "Downtown Community Center",
+    description: "Learn the basics of woodworking and create your own small project to take home.",
+    eventCategory: "Workshop",
+    image: "/images/woodworking_workshop.jpg"
   },
   {
-    title: "Music Festival",
-    date: "2025-07-20",
-    location: "Central Park",
-    description: 'Join us for a day of music, food, and activities that celebrate our diverse community.',
-    image: "/images/music_festival.jpg"
+    title: "Family Game Night",
+    date: "2025-09-05",
+    location: "Maple Grove Library",
+    description: "Enjoy board games, puzzles, and friendly competition for all ages.",
+    eventCategory: "Family",
+    image: "/images/family_game_night.jpg"
+  },
+  {
+    title: "Neighborhood Clean-Up",
+    date: "2025-10-12",
+    location: "Elm Street",
+    description: "Join your neighbors to beautify our streets and parks in this community effort.",
+    eventCategory: "Community",
+    image: "/images/neighborhood_cleanup.jpg"
+  },
+  {
+    title: "Photography Workshop",
+    date: "2025-11-08",
+    location: "Art Studio on Main",
+    description: "Discover tips and tricks for capturing stunning photos with your camera or phone.",
+    eventCategory: "Workshop",
+    image: "/images/photography_workshop.jpg"
+  },
+  {
+    title: "Family Storytime",
+    date: "2025-07-25",
+    location: "City Library",
+    description: "Bring your kids for an evening of storytelling and interactive activities.",
+    eventCategory: "Family",
+    image: "/images/family_storytime.jpg"
+  },
+  {
+    title: "Community Art Fair",
+    date: "2025-08-22",
+    location: "Town Square",
+    description: "Showcase and purchase local artwork while enjoying live music and food stalls.",
+    eventCategory: "Community",
+    image: "/images/community_art_fair.jpg"
+  },
+  {
+    title: "Cooking Workshop",
+    date: "2025-09-18",
+    location: "Culinary School",
+    description: "Master new recipes and cooking techniques in this hands-on session.",
+    eventCategory: "Workshop",
+    image: "/images/cooking_workshop.jpg"
+  },
+  {
+    title: "Family Science Day",
+    date: "2025-10-25",
+    location: "Science Museum",
+    description: "Explore interactive exhibits and experiments designed for curious minds of all ages.",
+    eventCategory: "Family",
+    image: "/images/family_science_day.jpg"
+  },
+  {
+    title: "Community Gardening",
+    date: "2025-11-15",
+    location: "Greenfield Community Garden",
+    description: "Plant, weed, and harvest together to grow fresh produce for the neighborhood.",
+    eventCategory: "Community",
+    image: "/images/community_gardening.jpg"
   }
 ];
 
