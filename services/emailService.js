@@ -1,10 +1,11 @@
+require('dotenv').config();
 const nodemailer = require('nodemailer');
 
 // create reusable transporter
 const transporter = nodemailer.createTransport({
   host:    process.env.EMAIL_HOST,
   port:    parseInt(process.env.EMAIL_PORT, 10),
-  secure:  false, // upgrade with STARTTLS
+  secure:  true, // upgrade with STARTTLS
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS
@@ -18,6 +19,10 @@ const transporter = nodemailer.createTransport({
  * @param {string} text — body
  */
 async function sendEmail(to, subject, text) {
+  transporter.verify()
+  .then(() => console.log('SMTP connection OK'))
+  .catch(err => console.error('SMTP config error:', err));
+
   await transporter.sendMail({
     from:    `"VibeLink" <${process.env.EMAIL_USER}>`,
     to,
