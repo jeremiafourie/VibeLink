@@ -46,7 +46,7 @@
 
 .filter-btn.active,
 .filter-btn:hover {
-  background-color: var(--primary-color);
+  background: linear-gradient(45deg, #00C6FF, #8E2DE2);
   color: var(--white);
 }
 
@@ -54,7 +54,7 @@
   position: absolute;
   top: 16px;
   right: 16px;
-  background-color: blueviolet;
+  background: linear-gradient(45deg, #FC5C7D,  #6A82FB);
   color: black;
   padding: 8px 12px;
   border-radius: 8px;

@@ -20,7 +20,7 @@
         <% events.forEach(event => { %>
           <div class="event-card" data-category="<%= event.eventCategory %>">
             <div class="event-image">
-              <img src="<%= event.image %>" alt="<%= event.title %>">
+              <img src="<%= event.image %>" alt="<%= event.title %> ">
               <div class="event-day">
                 <span><%= new Date(event.date).toLocaleDateString('en-US', { weekday: 'long' }) %></span>
               </div>

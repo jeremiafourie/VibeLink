@@ -43,32 +43,6 @@ body {
     justify-content: center;
     gap: 1rem;
 }
-.btn-primary {
-    background-color: #3b82f6;
-    color: white;
-    font-weight: bold;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 0.25rem;
-    text-decoration: none;
-    display: inline-block;
-}
-.btn-secondary {
-    background-color: #f97316;
-    color: white;
-    font-weight: bold;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 0.25rem;
-    text-decoration: none;
-    display: inline-block;
-}
-.btn-primary:hover {
-    background-color: #2563eb;
-}
-.btn-secondary:hover {
-    background-color: #ea580c;
-}
 
 .featured-events {
     background-color: #f3f4f6;
@@ -86,101 +60,8 @@ body {
     margin-bottom: 2rem;
 }
 
-/* Featured Events */
-.events-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 32px;
-    margin-bottom: 32px;
-}
-  
-.event-card {
-    background-color: white; 
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-    transition: all 0.3s ease; 
-}
-  
-.event-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-  
-.event-image {
-    position: relative;
-    height: 200px;
-    overflow: hidden;
-}
-  
-.event-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.event-details {
-    padding: 16px;
-}
-
-.event-card h3 {
-    font-size: 1.25rem;
-    color: #1f2937;
-    margin-bottom: 0.5rem;
-}
-
-.event-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    margin-bottom: 16px;
-    color: #6b7280; 
-    font-size: 0.9rem;
-}
-  
-.event-meta p {
-    margin-right: 8px;
-    color: black;
-    margin-top: 0; 
-}
-  
-.event-date {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    background-color: black;
-    color: black;
-    padding: 8px 12px;
-    border-radius: 8px; 
-    font-weight: 600;
-    text-align: center;
-}
-
-.event-description {
-    color: #6b7280;
-    font-size: 0.9rem;
-    margin-bottom: 0;
-}
-.no-events {
-    color: #6b7280;
-    font-size: 1rem;
-}
 .view-all {
     margin-top: 2rem;
-}
-.btn-outline {
-    background-color: #3b82f6;
-    color: white;
-    font-weight: bold;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 0.25rem;
-    text-decoration: none;
-    display: inline-block;
-}
-.btn-outline:hover {
-    background-color: #2563eb;
 }
 
 .cta {
@@ -197,13 +78,7 @@ body {
     font-size: 1rem;
     margin-bottom: 1.5rem;
 }
-.cta-content .btn-primary {
-    background-color: white;
-    color: #3b82f6;
-}
-.cta-content .btn-primary:hover {
-    background-color: #f3f4f6;
-}
+
 
 /* Responsive adjustments */
 @media (max-width: 768px) {

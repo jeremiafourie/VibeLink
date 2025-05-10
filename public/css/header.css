@@ -95,20 +95,9 @@ nav {
   width: 100%;
 }
 
-.login-btn {
-  background-color: var(--primary-color);
-  border: none;
+#login-btn {
   padding: 8px 16px;
-  border-radius: var(--border-radius);
-  cursor: pointer;
-  font-weight: 500;
-  transition: var(--transition);
-}
-
-.login-btn.active,
-.login-btn:hover {
-  background-color: var(--primary-color);
-  color: var(--white);
+  font-weight: 400;
 }
 
 

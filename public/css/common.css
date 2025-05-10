@@ -3,3 +3,127 @@ To be used for all for the styles that the other css files have in common
 
 */
 
+
+        /* Shared button styles */
+    .btn {
+      padding: 10px 20px;
+      border-radius: 6px;
+      border: none;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .btn:hover {
+      filter: brightness(1.1);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+    
+    .btn:active {
+      filter: brightness(0.9);
+      transform: translateY(0);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+      /* Primary button - blue to purple */
+    .btn-primary {
+      background: linear-gradient(45deg, #00C6FF, #8E2DE2);
+    }
+    
+    /* Secondary button - pink to light blue */
+    .btn-secondary {
+      background: linear-gradient(45deg, #FC5C7D,  #6A82FB);
+    }
+
+
+/*Events*/
+/* Featured Events */
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 32px;
+    margin-bottom: 32px;
+}
+  
+.event-card {
+    background-color: white; 
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    transition: all 0.3s ease; 
+    padding-bottom: 50px;
+}
+  
+.event-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+  
+.event-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+  
+.event-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.event-details {
+    padding: 16px;
+}
+
+.event-card h3 {
+    font-size: 1.25rem;
+    color: #1f2937;
+    margin-bottom: 0.5rem;
+}
+
+.event-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 16px;
+    color: #6b7280; 
+    font-size: 0.9rem;
+}
+  
+.event-meta p {
+    margin-right: 8px;
+    color: black;
+    margin-top: 0; 
+}
+  
+.event-date {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background-color: black;
+    color: black;
+    padding: 8px 12px;
+    border-radius: 8px; 
+    font-weight: 600;
+    text-align: center;
+}
+
+.event-description {
+    text-align: left;
+    color: #6b7280;
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+.no-events {
+    color: #6b7280;
+    font-size: 1rem;
+}
