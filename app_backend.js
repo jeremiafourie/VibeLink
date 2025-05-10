@@ -8,7 +8,7 @@ const path          = require('path');
 const pageRoutes    = require('./routes/pageRoutes');
 const authRoutes    = require('./routes/authRoutes');
 const adminRoutes   = require('./routes/adminRoutes');
-// const contactRoutes = require('./routes/contactRoutes');
+const contactRoutes = require('./routes/contactRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -47,7 +47,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/', pageRoutes);      // single-page front end
 app.use('/auth', authRoutes);  // OTP/login flows
 app.use('/admin', adminRoutes);// admin CRUD
-// app.use('/', contactRoutes);   // contact form POST
+app.use('/', contactRoutes);   // contact form POST
 
 // 404 & error handlers
 app.use((req, res) => res.status(404).send('Page Not Found'));
