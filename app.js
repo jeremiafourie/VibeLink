@@ -5,7 +5,7 @@ const path = require("path");
 const pageRoutes = require("./routes/pageRoutes");
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8000;
 
 // --------------- In-memory data stores ---------------
 // Team information
