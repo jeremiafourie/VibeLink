@@ -1,0 +1,101 @@
+
+/*======================================
+  1) Variables & Reset
+======================================*/
+:root {
+    --gradient-start: #00C6FF;
+    --gradient-end:   #8E2DE2;
+    --text-light:     #ffffff;
+    --bg-light:       #f9f9f9;
+    --accent:         #222;
+    --header-height:  80px;  /* nav‐bar height */
+  
+    --text-50: #f4eef6;
+    --text-100: #e8ddee;
+    --text-200: #d2bbdd;
+    --text-300: #bb99cc;
+    --text-400: #a477bb;
+    --text-500: #8e55aa;
+    --text-600: #714488;
+    --text-700: #553366;
+    --text-800: #392244;
+    --text-900: #1c1122;
+    --text-950: #0e0911;
+  
+    --background-50: #f4eef6;
+    --background-100: #e8deed;
+    --background-200: #d1bddb;
+    --background-300: #ba9cc9;
+    --background-400: #a37ab8;
+    --background-500: #8c59a6;
+    --background-600: #704785;
+    --background-700: #543663;
+    --background-800: #382442;
+    --background-900: #1c1221;
+    --background-950: #0e0911;
+  
+    --primary-50: #e5f8ff;
+    --primary-100: #ccf1ff;
+    --primary-200: #99e2ff;
+    --primary-300: #66d4ff;
+    --primary-400: #33c5ff;
+    --primary-500: #00b7ff;
+    --primary-600: #0092cc;
+    --primary-700: #006e99;
+    --primary-800: #004966;
+    --primary-900: #002533;
+    --primary-950: #00121a;
+  
+    --secondary-50: #ece5ff;
+    --secondary-100: #d9ccff;
+    --secondary-200: #b399ff;
+    --secondary-300: #8c66ff;
+    --secondary-400: #6633ff;
+    --secondary-500: #4000ff;
+    --secondary-600: #3300cc;
+    --secondary-700: #260099;
+    --secondary-800: #1a0066;
+    --secondary-900: #0d0033;
+    --secondary-950: #06001a;
+  
+    --accent-50: #f6e6fe;
+    --accent-100: #edcefd;
+    --accent-200: #da9dfb;
+    --accent-300: #c86bfa;
+    --accent-400: #b53af8;
+    --accent-500: #a309f6;
+    --accent-600: #8207c5;
+    --accent-700: #620594;
+    --accent-800: #410462;
+    --accent-900: #210231;
+    --accent-950: #100119;
+  }
+  
+  
+  /* Fonts */
+  @import url('https://fonts.googleapis.com/css?family=Noto%20Sans%20KR:700|Noto%20Sans%20KR:400');
+  
+  body {
+    font-family: 'Noto Sans KR';
+    font-weight: 400;
+  }
+  
+  h1, h2, h3, h4, h5 {
+    font-family: 'Noto Sans KR';
+    font-weight: 700;
+  }
+  
+  html {font-size: 100%;} /* 16px */
+  
+  h1 {font-size: 4.210rem; /* 67.36px */}
+  
+  h2 {font-size: 3.158rem; /* 50.56px */}
+  
+  h3 {font-size: 2.369rem; /* 37.92px */}
+  
+  h4 {font-size: 1.777rem; /* 28.48px */}
+  
+  h5 {font-size: 1.333rem; /* 21.28px */}
+  
+  small {font-size: 0.750rem; /* 12px */}
+  

@@ -1,0 +1,14 @@
+  /*======================================
+    9) Team List
+  ======================================*/
+  .team-list {
+    list-style: none;
+    margin-top: 1rem;
+  }
+  .team-list li {
+    background: #fafafa;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    border-left: 4px solid var(--gradient-start);
+    border-radius: 4px;
+  }
