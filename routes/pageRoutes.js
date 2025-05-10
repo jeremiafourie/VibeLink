@@ -3,6 +3,8 @@
 const express = require('express');
 const router = express.Router();
 
+const { submit } = require('../controllers/contactController');
+
 // Home page – show 2 upcoming events
 router.get('/', (req, res) => {
   const featuredEvents = req.app.locals.events.slice(0, 3); //Load the first three upcoming events
@@ -41,6 +43,9 @@ router.post('/contact', (req, res) => {
   // Redirect to thank you page, passing name as query
   res.redirect(`/thankyou?name=${encodeURIComponent(name)}`);
 });
+
+
+// router.post('/contact', submit);
 
 // Thank You page – show confirmation
 router.get('/thankyou', (req, res) => {

@@ -31,7 +31,7 @@ exports.submit = async (req, res, next) => {
     );
     
     // 5) redirect with thank‐you anchor
-    res.redirect('/#contact?thanks=1');
+    res.redirect(`/thankyou?name=${encodeURIComponent(name)}`);
   } catch (err) {
     next(err);
   }
