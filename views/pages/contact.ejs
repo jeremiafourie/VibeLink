@@ -1,8 +1,56 @@
-<h1>Contact Us</h1>
-<form method="POST" action="/contact">
-  <input type="text" name="name" placeholder="Your Name" required /><br />
-  <input type="text" name="phone" placeholder="Your Cell Phone number">
-  <input type="email" name="email" placeholder="Your Email" required /><br />
-  <textarea name="message" placeholder="Your Message" required></textarea><br />
-  <button type="submit">Send</button>
-</form>
+<%- include('../partials/header') %>
+
+<main class="contact-page">
+  <div class="container">
+    <!-- Send Us a Message -->
+    <section class="contact-section">
+      <div class="contact-card">
+        <h2>Send Us a Message</h2>
+        <form method="POST" action="/contact">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input id="name" type="text" name="name" placeholder="Enter your name" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Your Phone</label>
+            <input id="phone" type="text" name="phone" placeholder="Enter your phone number" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <input id="email" type="email" name="email" placeholder="you@example.com" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Frequently Asked Questions -->
+    <section class="faq-section">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <div class="faq-grid">
+        <div class="faq-card">
+          <h3>How can I volunteer with the community?</h3>
+          <p>We're always looking for volunteers! Fill out our contact form above, specifying your interest, and our team will reach out.</p>
+        </div>
+        <div class="faq-card">
+          <h3>Can I propose an event idea?</h3>
+          <p>Absolutely! Contact us with your concept, and our events team will discuss how we can support your initiative.</p>
+        </div>
+        <div class="faq-card">
+          <h3>Are your events free to attend?</h3>
+          <p>Most events are free, though some special workshops may have a nominal fee. Listings always specify any costs.</p>
+        </div>
+        <div class="faq-card">
+          <h3>How can I support the community portal?</h3>
+          <p>You can support us through volunteering, donations, or sharing our initiatives. Every contribution helps!</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<%- include('../partials/footer') %>
