@@ -16,6 +16,7 @@
   font-size: 1.75rem;
   color: var(--text-900);
   text-align: center;
+  width: 100%;
 }
 .contact-card .form-group {
   margin-bottom: 1.25rem;
