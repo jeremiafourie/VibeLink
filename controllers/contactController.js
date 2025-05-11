@@ -7,7 +7,7 @@ exports.submit = async (req, res, next) => {
     const { name, email, message, phone } = req.body;
     
     // 1) save to MongoDB
-    const sub = await Submission.create({ name, email, message, phone });
+    const sub = await Submission.create({ name, phone, email, message, phone });
     
     // 2) notify admin by WhatsApp
     await sendWhatsApp(
