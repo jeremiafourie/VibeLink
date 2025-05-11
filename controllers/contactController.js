@@ -1,4 +1,3 @@
-// controllers/contactController.js
 const Submission      = require('../models/Submission');
 const { sendWhatsApp } = require('../services/whatsappService');
 const { sendEmail }    = require('../services/emailService');
@@ -21,6 +20,12 @@ exports.submit = async (req, res, next) => {
       process.env.ADMIN_EMAIL,
       `New VibeLink Contact from ${name}`,
       `Name: ${name}\nEmail: ${email}\nPhone: ${phone || 'n/a'}\n\nMessage:\n${message}`
+    );
+
+    // 4) Send confirmation message back to user by WhatsApp
+    await sendWhatsApp(
+      phone,
+      `Hi ${name},\n\nThanks for your message! We'll get back to you soon.\n\n— The VibeLink Team`
     );
     
     // 4) Send confirmation email back to user

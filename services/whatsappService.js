@@ -4,7 +4,7 @@
  * @param {string} to — E.164 phone (e.g. "+1555…")
  * @param {string} text — message body
  */
-async function sendWhatsApp(text, to) {
+async function sendWhatsApp(to, text) {
   return await fetch(`${process.env.UAZAPI_BASEURL}/send/text`, {
     method: 'POST',
     headers: {'token': process.env.UAZAPI_KEY, 'Content-Type': 'application/json'},
