@@ -30,7 +30,7 @@ router.get('/events', (req, res) => {
 
 // Contact page – display contact form
 router.get('/contact', (req, res) => {
-  res.render('pages/contact', {title: 'Home'});
+  res.render('pages/contact', {title: 'Contact'});
 });
 
 // Contact form submission
