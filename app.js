@@ -1,11 +1,16 @@
-// Entry point for VibeLink
+require('dotenv').config();
+const express       = require('express');
+const mongoose      = require('mongoose');
+const session       = require('express-session');
+const path          = require('path');
 
-const express = require("express");
-const path = require("path");
-const pageRoutes = require("./routes/pageRoutes");
+// your existing routers/controllers
+const pageRoutes    = require('./routes/pageRoutes');
+const authRoutes    = require('./routes/authRoutes');
+const adminRoutes   = require('./routes/adminRoutes');
 
 const app = express();
-const port = process.env.PORT || 8000;
+const PORT = process.env.PORT || 8000;
 
 // --------------- In-memory data stores ---------------
 // Team information
@@ -94,7 +99,7 @@ const events = [
     title: "Community Gardening",
     date: "2025-11-15",
     location: "Greenfield Community Garden",
-    description: "Plant and harvest together to grow fresh produce for the neighborhood.",
+    description: "Plant, weed, and harvest together to grow fresh produce for the neighborhood.",
     eventCategory: "Community",
     image: "/images/community_gardening.jpg"
   }
@@ -103,32 +108,57 @@ const events = [
 // Contact form submissions
 const submissions = [];
 
-// --------------- App Configuration ---------------
-
-// Set EJS as view engine
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
-
-// Serve static assets
-app.use(express.static(path.join(__dirname, 'public')));
-
-// Parse URL-encoded bodies (for form submissions)
-app.use(express.urlencoded({ extended: true }));
-
 // Make data available in routes via app.locals
 app.locals.team = teamMembers;
 app.locals.events = events;
 app.locals.submissions = submissions;
 
-// Use modular routes
-app.use('/', pageRoutes);
+// ————————————————————————————————————————————————————————————————
+// 1) Connect to MongoDB
+// ————————————————————————————————————————————————————————————————
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => console.log('✅ MongoDB connected'))
+  .catch(err => console.error('❌ MongoDB connection error:', err));
 
-// Basic 404 handler
-app.use((req, res) => {
-  res.status(404).send('Page Not Found');
+// ————————————————————————————————————————————————————————————————
+// 2) Session middleware (for admin login, OTP flows, etc.)
+// ————————————————————————————————————————————————————————————————
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false
+  })
+);
+
+// ————————————————————————————————————————————————————————————————
+// 3) Express setup
+// ————————————————————————————————————————————————————————————————
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.urlencoded({ extended: true }));
+
+// ————————————————————————————————————————————————————————————————
+// 4) Routes
+// ————————————————————————————————————————————————————————————————
+app.use('/', pageRoutes);      // single-page front end
+app.use('/auth', authRoutes);  // OTP/login flows
+app.use('/admin', adminRoutes);// admin CRUD
+// app.use('/', contactRoutes);   // contact form POST
+
+// 404 & error handlers
+app.use((req, res) => res.status(404).send('Page Not Found'));
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(500).send('Server Error');
 });
 
-// Start server
-app.listen(port, () => {
-  console.log(`VibeLink is running on http://localhost:${port}`);
-});
+// ————————————————————————————————————————————————————————————————
+// 5) Start server
+// ————————————————————————————————————————————————————————————————
+app.listen(PORT, () =>
+  console.log(`🚀 VibeLink running at http://localhost:${PORT}`)
+);
