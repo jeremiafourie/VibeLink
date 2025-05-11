@@ -1,11 +1,8 @@
-header a {
-  color: var(--primary-color);
-  text-decoration: none;
-  transition: var(--transition);
-}
 
-header a:hover {
-  color: var(--primary-dark);
+/* Header */
+
+header a {
+  text-decoration: none;
 }
 
 header img {
@@ -17,7 +14,6 @@ header ul {
   list-style: none;
 }
 
-/* Header */
 #main-header {
   position: fixed;
   top: 0;
@@ -27,8 +23,7 @@ header ul {
   backdrop-filter: blur(10px);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   padding: 16px 0;
-  z-index: 1000;
-  transition: var(--transition);
+  z-index: 999;
 }
 
 #main-header .container {
@@ -42,7 +37,7 @@ header ul {
   align-items: center;
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--primary-color);
+  color: var(--text-950);
   margin-left: 10px;
 }
 
@@ -56,10 +51,11 @@ header ul {
   font-size: 1rem;  
 }
 
+/* nav styles */
 nav {
   display: flex;
   align-items: center;
-   padding-right: 100px;
+  padding-right: 100px;
 }
 
 .nav-links {
@@ -68,7 +64,7 @@ nav {
 }
 
 .nav-links a {
-  color: var(--text-color);
+  color: var(--text-950);
   font-weight: 500;
   position: relative;
  
@@ -76,23 +72,7 @@ nav {
 
 .nav-links a:hover, 
 .nav-links a.active {
-  color: var(--primary-color);
-}
-
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: var(--primary-color);
-  transition: var(--transition);
-}
-
-.nav-links a:hover::after,
-.nav-links a.active::after {
-  width: 100%;
+  color: var(--gradient-start);
 }
 
 #login-btn {

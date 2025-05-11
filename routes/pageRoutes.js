@@ -7,10 +7,10 @@ const { submit } = require('../controllers/contactController');
 
 // Home page – show 2 upcoming events
 router.get('/', (req, res) => {
-  const featuredEvents = req.app.locals.events.slice(0, 3); //Load the first three upcoming events
+  const upcomingEvents = req.app.locals.events.slice(0, 3); //Load the first three upcoming events
   res.render('pages/home', { 
     title: 'Home',
-    featuredEvents
+    upcomingEvents
   });
 });
 

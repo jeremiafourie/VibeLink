@@ -16,7 +16,7 @@
   </div>
 </section>
 
-<section class="featured-events">
+<section class="upcoming-events">
   <div class="container">
       <div class="section-header">
           <h2>Upcoming Events</h2>
@@ -24,8 +24,10 @@
       </div>
       
       <div class="events-grid">
-        <% if (featuredEvents.length > 0) { %>
-          <% featuredEvents.forEach(event => { %>
+        <% if (upcomingEvents.length > 0) { %>
+          <!-- Sort by the event that is the next upcoming event -->
+         <% upcomingEvents.sort((a, b) => new Date(a.date) - new Date(b.date)); %> 
+          <% upcomingEvents.forEach(event => { %>
             <div class="event-card">
               <div class="event-image">
                 <img src="<%= event.image %>" alt="<%= event.title %>">
@@ -51,9 +53,9 @@
   </div>
 </section>
 
-<section class="cta">
+<section class="Join-community">
   <div class="container">
-      <div class="cta-content">
+      <div class="Join-community-content">
           <h2>Join Our Community Today</h2>
           <p>Be part of the VibeLink community and make lasting connections :)</p>
           <a href="/contact" class="btn btn-primary">Get Involved</a>

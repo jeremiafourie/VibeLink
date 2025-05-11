@@ -1,4 +1,4 @@
-.featured-events .container {
+.upcoming-events .container {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
@@ -45,37 +45,29 @@
     margin-bottom: 1rem;
     color: black;
 }
-@media (min-width: 768px) {
-    .hero-content h1 {
-        font-size: 3rem;
-    }
-}
+
 .hero-content p {
     font-size: 1rem;
     margin-bottom: 1.5rem;
 }
-@media (min-width: 768px) {
-    .hero-content p {
-        font-size: 1.25rem;
-    }
-}
+
 .hero-buttons {
     display: flex;
     justify-content: center;
     gap: 1rem;
 }
 
-.featured-events {
+.upcoming-events {
     background-color: #f3f4f6;
     padding: 3rem 0; 
     text-align: center;
 }
-.section-header h2 {
+.upcoming-events .section-header h2 {
     font-size: 2rem;
     color: #1f2937;
     margin-bottom: 0.5rem;
 }
-.section-header p {
+.upcoming-events .section-header p {
     font-size: 1rem;
     color: #6b7280;
     margin-bottom: 2rem;
@@ -85,17 +77,17 @@
     margin-top: 2rem;
 }
 
-.cta {
+.Join-community {
     background: #ffffff;
     padding: 2rem 0; 
     text-align: center;
     color: black;
 }
-.cta-content h2 {
+.Join-community-content h2 {
     font-size: 2rem;
     margin-bottom: 0.5rem;
 }
-.cta-content p {
+.Join-community-content p {
     font-size: 1rem;
     margin-bottom: 1.5rem;
 }
@@ -105,5 +97,17 @@
 @media (max-width: 768px) {
     .events-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 768px) {
+    .hero-content p {
+        font-size: 1.25rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .hero-content h1 {
+        font-size: 3rem;
     }
 }

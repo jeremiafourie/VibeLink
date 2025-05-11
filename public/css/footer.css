@@ -1,6 +1,6 @@
 /* Footer */
 footer {
-  background: var(--primary-700);
+  background: var(--primary-300);
   color: black;
   padding: 64px 0 32px;
 
@@ -42,16 +42,6 @@ footer .container {
   position: relative;
   font-size: 1.2rem;
   font-weight: 600;
-}
-
-.footer-links h4::after,
-.footer-social h4::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  width: 40px;
-  height: 2px;
 }
 
 .footer-links ul {
