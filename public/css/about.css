@@ -1,14 +1,127 @@
   /*======================================
     9) Team List
-  ======================================*/
-  .team-list {
-    list-style: none;
-    margin-top: 1rem;
+  ======================================*/ 
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  } 
+
+  /* About Section */
+  .about-section {
+    margin: 5rem auto;
+    padding: 2rem 1rem;
+    max-width: 1000px;
+    background-color: #f3f4f6;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
   }
-  .team-list li {
-    background: #fafafa;
-    padding: 0.75rem 1rem;
-    margin-bottom: 0.5rem;
-    border-left: 4px solid var(--gradient-start);
-    border-radius: 4px;
-  }
+
+.about-section h1 {
+  padding-top: 6rem;
+  font-size: 2.5rem;
+  background: linear-gradient(45deg, #00C6FF, #8E2DE2);
+  background-clip: text ;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+
+.about-intro {
+  font-size: 1.2rem;
+  color: #4a4a4a;
+  margin-bottom: 2.5rem;
+}
+
+/* Team List */
+.team-list {
+  display: flex;
+  justify-content: center; /* center items horizontally */
+  align-items: flex-start; /* align top edges */
+  flex-wrap: wrap; /* allow wrapping if needed */
+  gap: 2rem;
+  padding: 0;
+  list-style: none;
+  padding-bottom: 6rem;
+}
+
+
+.team-member-card {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.07);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.team-member-card strong {
+  display: block;
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.team-member-card span {
+  font-size: 1rem;
+  color: #666;
+}
+
+.team-member-card:hover .member-info strong {
+  color: #8E2DE2;
+}
+
+.team-member-card:hover .member-info span {
+  color: #555;
+}
+
+/* Goal Cards */
+.about-extras {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.goal-card {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.07);
+}
+
+.goal-card:hover {
+  transform: scale(1.03);
+  transition: all 0.3s ease;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+
+.goal-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #8E2DE2;
+}
+
+.goal-card p,
+.goal-card li {
+  font-size: 1.1rem;
+  color: #444;
+}
+
+.goal-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+
+  
+ 
+  
+  

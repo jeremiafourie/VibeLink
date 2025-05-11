@@ -10,15 +10,15 @@ const authRoutes    = require('./routes/authRoutes');
 const adminRoutes   = require('./routes/adminRoutes');
 
 const app = express();
-const PORT = process.env.PORT || 8000;
+const port = process.env.PORT || 8080;
 
 // --------------- In-memory data stores ---------------
 // Team information
 const teamMembers = [
-  { name: "Jeremia Fourie", role: "Backend Developer" },
+  { name: "Jeremia Fourie", role: "Backend Developer"},
   { name: "Waldo Blom", role: "Frontend Developer" },
   { name: "Itumeleng Monokoane", role: "Documentation Manager" },
-  { name: "Onalerona Lefoka", role: "Data Manager"}
+  { name: "Onalerona Lefoka", role: "Data Manager" }
 ];
 
 // Upcoming events

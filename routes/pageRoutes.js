@@ -17,7 +17,9 @@ router.get('/', (req, res) => {
 // About page – list team members
 router.get('/about', (req, res) => {
   const team = req.app.locals.team;
-  res.render('pages/about', { team });
+  res.render('pages/about', { 
+    title: 'About Us',
+   });
 });
 
 // Events page – list all events
