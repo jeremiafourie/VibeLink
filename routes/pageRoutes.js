@@ -50,7 +50,9 @@ router.post('/contact', (req, res) => {
 // Thank You page – show confirmation
 router.get('/thankyou', (req, res) => {
   const { name } = req.query;
-  res.render('pages/thankyou', { name });
+  res.render('pages/thankyou', { name,
+    title: 'Thank You'
+  });
 });
 
 module.exports = router;
