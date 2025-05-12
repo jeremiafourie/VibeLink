@@ -25,8 +25,8 @@ const eventSchema = new mongoose.Schema({
   eventCategory: {
     type: String,
     enum: {
-      values: ['Workshops', 'Community', 'Family'],
-      message: 'Category must be either: Workshops, Community or Family'
+      values: ['Workshop', 'Community', 'Family'],
+      message: 'Category must be either: Workshop, Community or Family'
     },
     required: [true, 'An event must have a category']
   },
