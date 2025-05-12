@@ -69,4 +69,19 @@ router.post('/logout', (req, res) => {
   });
 });
 
+// GET /auth/status
+// tells the front end who’s logged in (if anyone) and returns only the fields it needs
+router.get('/status', (req, res) => {
+  const user = req.session.user;
+  if (user) {
+    // only expose public properties
+    const { id, userType, name } = user;
+    return res.json({
+      success: true,
+      user: { id, userType, name }
+    });
+  }
+  return res.json({ success: false });
+});
+
 module.exports = router;

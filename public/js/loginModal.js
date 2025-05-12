@@ -1,4 +1,32 @@
+function updateAuthUI(user) {
+  // show/hide login vs logout buttons
+  document.getElementById('login-li') .classList.toggle('hidden', !!user);
+  document.getElementById('logout-li').classList.toggle('hidden', !user);
+
+  // header nav-auth links
+  document.querySelectorAll('.nav-auth').forEach(el => {
+    const role = el.classList.contains('admin') ? 'admin' : 'organization';
+    el.classList.toggle('hidden', !(user && role === user.userType));
+  });
+
+  // page‐level auth-only blocks
+  document.querySelectorAll('.auth-only').forEach(el => {
+    const showFor = el.dataset.userType; // "any"|"admin"|"organization"
+    const ok = user
+      && ( showFor === 'any' || showFor === user.userType );
+    el.classList.toggle('hidden', !ok);
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  fetch('/auth/status')
+    .then(r => r.json())
+    .then(data => {
+      window.currentUser = data.success ? data.user : null;
+      updateAuthUI(window.currentUser);
+    })
+    .catch(console.error);
+
   // Header buttons
   const loginBtn   = document.getElementById('login-btn');
   const loginLi    = document.getElementById('login-li');
@@ -123,10 +151,12 @@ document.addEventListener('DOMContentLoaded', () => {
       verifyBtn.classList.add('hidden');
 
       // Toggle header buttons & show authorized nav items
-      loginLi.classList.add('hidden');
-      logoutLi.classList.remove('hidden');
-      document.querySelectorAll(`.nav-auth.${data.userType}`)
-              .forEach(el => el.classList.remove('hidden'));
+      // loginLi.classList.add('hidden');
+      // logoutLi.classList.remove('hidden');
+      // document.querySelectorAll(`.nav-auth.${data.userType}`)
+      //         .forEach(el => el.classList.remove('hidden'));
+      
+      updateAuthUI(data);
 
       // Auto-close modal after 5s
       setTimeout(() => modal.classList.add('hidden'), 5000);
@@ -172,3 +202,4 @@ document.addEventListener('DOMContentLoaded', () => {
     if (otpLabel) otpLabel.classList.remove('hidden');
   }
 });
+
