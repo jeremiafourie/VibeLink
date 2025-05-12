@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 router.get('/about', (req, res) => {
   const team = req.app.locals.team;
   res.render('pages/about', { 
-    title: 'About Us',
+    title: 'About',
    });
 });
 
