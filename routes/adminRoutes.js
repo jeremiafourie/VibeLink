@@ -10,7 +10,7 @@ router.use((req, res, next) => {
 // List events
 router.get('/', async (req, res) => {
   const events = await Event.find();
-  res.render('admin/dashboard', { events });
+  // res.render('admin/submissions', { events });
 });
 
 // Create event
