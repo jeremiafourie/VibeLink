@@ -33,7 +33,7 @@ const eventSchema = new mongoose.Schema({
   image: {
     type: String,
     trim: true,
-    match: [/^https?:\/\/.+\.(jpg|jpeg|png|gif)$/, 'Please provide a valid image URL'],
+    // match: [/^https?:\/\/.+\.(jpg|jpeg|png|gif)$/, 'Please provide a valid image URL'], TODO: update regex pattern to match our string
     default: 'https://example.com/default-event.jpg'
   }
 }, {
