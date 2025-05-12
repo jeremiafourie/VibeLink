@@ -22,7 +22,12 @@
           <li><a href="/about" class="<%= title === 'About' ? 'active' : '' %>">About</a></li>
           <li><a href="/events" class="<%= title === 'Events' ? 'active' : '' %>">Events</a></li>
           <li><a href="/contact" class="<%= title === 'Contact' ? 'active' : '' %>">Contact</a></li>
-          <li><button id="login-btn" class="btn btn-primary">Log in</button></li>
+
+          <!-- login / logout toggles -->
+          <li id="login-li"><button id="login-btn"  class="btn btn-primary">Log in</button></li>
+          <li id="logout-li" class="hidden" >
+            <button id="logout-btn" class="btn btn-primary">Log out</button>
+          </li>
         </ul>
       </nav>
     </div>
