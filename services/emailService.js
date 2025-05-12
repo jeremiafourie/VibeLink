@@ -19,10 +19,6 @@ const transporter = nodemailer.createTransport({
  * @param {string} text — body
  */
 async function sendEmail(to, subject, text) {
-  transporter.verify()
-  .then(() => console.log('SMTP connection OK'))
-  .catch(err => console.error('SMTP config error:', err));
-
   await transporter.sendMail({
     from:    `"VibeLink" <${process.env.EMAIL_USER}>`,
     to,
