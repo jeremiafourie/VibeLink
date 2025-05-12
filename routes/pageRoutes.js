@@ -35,18 +35,6 @@ router.get('/contact', (req, res) => {
   res.render('pages/contact', {title: 'Contact'});
 });
 
-// Contact form submission
-// router.post('/contact', (req, res) => {
-//   const { name, email, message } = req.body;
-//   if (!name || !email || !message) {
-//     return res.status(400).send('All fields are required.');
-//   }
-//   req.app.locals.submissions.push({ name, email, message });
-//   // Redirect to thank you page, passing name as query
-//   res.redirect(`/thankyou?name=${encodeURIComponent(name)}`);
-// });
-
-
 router.post('/contact', submit);
 
 // Thank You page – show confirmation
