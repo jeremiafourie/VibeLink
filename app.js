@@ -10,7 +10,7 @@ const authRoutes    = require('./routes/authRoutes');
 const adminRoutes   = require('./routes/adminRoutes');
 
 const app = express();
-const port = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8080;
 
 // --------------- In-memory data stores ---------------
 // Team information
