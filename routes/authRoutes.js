@@ -37,21 +37,36 @@ router.post('/login/verify', async (req, res) => {
       return res.status(400).json({ success: false, message: 'Invalid OTP' });
     }
     const user = await User.findOne({ phone });
-    // store user info in session
+    // store user info + name in session
     req.session.user = {
-      id: user._id,
-      phone: user.phone,
-      userType: user.userType
+      id:       user._id,
+      phone:    user.phone,
+      userType: user.userType,
+      name:     user.name      // ← make sure your User schema has a "name" field
     };
     return res.json({
-      success: true,
-      message: 'Login successful',
-      userType: user.userType
+      success:  true,
+      message:  `Welcome, ${user.name}!`,
+      userType: user.userType,
+      name:     user.name
     });
   } catch (err) {
     console.error(err);
     return res.status(500).json({ success: false, message: 'Server error' });
   }
+});
+
+// logout
+router.post('/logout', (req, res) => {
+  req.session.destroy(err => {
+    if (err) {
+      console.error(err);
+      return res.status(500).json({ success: false, message: 'Logout failed' });
+    }
+    // clear the session cookie
+    res.clearCookie('connect.sid');
+    return res.json({ success: true, message: 'Logged out' });
+  });
 });
 
 module.exports = router;
