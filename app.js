@@ -1,27 +1,32 @@
 require('dotenv').config();
-const express       = require('express');
-const mongoose      = require('mongoose');
-const session       = require('express-session');
-const path          = require('path');
+const express   = require('express');
+const mongoose  = require('mongoose');
+const session   = require('express-session');
+const path      = require('path');
 
-// your existing routers/controllers
-const pageRoutes    = require('./routes/pageRoutes');
-const authRoutes    = require('./routes/authRoutes');
-const adminRoutes   = require('./routes/adminRoutes');
+const pageRoutes  = require('./routes/pageRoutes');
+const authRoutes  = require('./routes/authRoutes');
+const adminRoutes = require('./routes/adminRoutes');
+
+// now that you have a models/ folder:
+const Team       = require('./models/Team');
+const Event      = require('./models/Event');
+const Submission = require('./models/Submission');
+const User       = require('./models/User');
 
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-// --------------- In-memory data stores ---------------
-// Team information
+// ————————————————————————————————————————————————————————————————
+// Static arrays for initial seeding
+// ————————————————————————————————————————————————————————————————
 const teamMembers = [
-  { name: "Jeremia Fourie", role: "Backend Developer"},
-  { name: "Waldo Blom", role: "Frontend Developer" },
+  { name: "Jeremia Fourie", role: "Backend Developer" },
+  { name: "Waldo Blom",     role: "Frontend Developer" },
   { name: "Itumeleng Monokoane", role: "Documentation Manager" },
-  { name: "Onalerona Lefoka", role: "Data Manager" }
+  { name: "Onalerona Lefoka",     role: "Data Manager" }
 ];
 
-// Upcoming events
 const events = [
   {
     title: "Community Picnic",
@@ -105,49 +110,60 @@ const events = [
   }
 ];
 
-// Contact form submissions
-const submissions = [];
-
-// Make data available in routes via app.locals
-app.locals.team = teamMembers;
-app.locals.events = events;
-app.locals.submissions = submissions;
-
 // ————————————————————————————————————————————————————————————————
-// 1) Connect to MongoDB
+// Connect to MongoDB & seed initial data if empty
 // ————————————————————————————————————————————————————————————————
 mongoose
   .connect(process.env.MONGO_URI)
-  .then(() => console.log('✅ MongoDB connected'))
-  .catch(err => console.error('❌ MongoDB connection error:', err));
+  .then(async () => {
+    console.log('✅ MongoDB connected');
 
-// ————————————————————————————————————————————————————————————————
-// 2) Session middleware (for admin login, OTP flows, etc.)
-// ————————————————————————————————————————————————————————————————
-app.use(
-  session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false
+    if (await Team.countDocuments() === 0) {
+      await Team.create(teamMembers);
+      console.log('Seeded team members');
+    }
+
+    if (await Event.countDocuments() === 0) {
+      await Event.create(events);
+      console.log('Seeded events');
+    }
+
+    // default admin
+    if (await User.countDocuments({ isAdmin: true }) === 0) {
+      await User.create({
+        name:    process.env.ADMIN_NAME  || 'Admin User',
+        email:   process.env.ADMIN_EMAIL || 'admin@example.com',
+        phone:   process.env.ADMIN_PHONE || '+27111234567',
+        isAdmin: true
+      });
+      console.log('Seeded default admin user');
+    }
   })
-);
+  .catch(err => {
+    console.error('❌ MongoDB connection error:', err);
+    process.exit(1);
+  });
 
 // ————————————————————————————————————————————————————————————————
-// 3) Express setup
+// Session + Express setup
 // ————————————————————————————————————————————————————————————————
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false
+}));
+
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
-
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 
 // ————————————————————————————————————————————————————————————————
-// 4) Routes
+// Routes
 // ————————————————————————————————————————————————————————————————
-app.use('/', pageRoutes);      // single-page front end
-app.use('/auth', authRoutes);  // OTP/login flows
-app.use('/admin', adminRoutes);// admin CRUD
-// app.use('/', contactRoutes);   // contact form POST
+app.use('/',      pageRoutes);
+app.use('/auth',  authRoutes);
+app.use('/admin', adminRoutes);
 
 // 404 & error handlers
 app.use((req, res) => res.status(404).send('Page Not Found'));
@@ -156,9 +172,6 @@ app.use((err, req, res, next) => {
   res.status(500).send('Server Error');
 });
 
-// ————————————————————————————————————————————————————————————————
-// 5) Start server
-// ————————————————————————————————————————————————————————————————
 app.listen(PORT, () =>
   console.log(`🚀 VibeLink running at http://localhost:${PORT}`)
 );
