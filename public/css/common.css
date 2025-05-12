@@ -39,7 +39,7 @@ To be used for all for the styles that the other css files have in common
     }
     
     /* Secondary button - pink to light blue */
-    .btn-secondary {
+    .btn-secondary-main {
       background: linear-gradient(45deg, #FC5C7D,  #6A82FB);
     }
 
@@ -126,4 +126,22 @@ To be used for all for the styles that the other css files have in common
 .no-events {
     color: #6b7280;
     font-size: 1rem;
+}
+
+/* Join our community */
+
+
+.Join-community {
+    background: #ffffff;
+    padding: 2rem 0; 
+    text-align: center;
+    color: black;
+}
+.Join-community-content h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+.Join-community-content p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
 }
