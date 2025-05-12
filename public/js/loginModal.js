@@ -149,12 +149,6 @@ document.addEventListener('DOMContentLoaded', () => {
       // Hide the input and button
       otpIn.classList.add('hidden');
       verifyBtn.classList.add('hidden');
-
-      // Toggle header buttons & show authorized nav items
-      // loginLi.classList.add('hidden');
-      // logoutLi.classList.remove('hidden');
-      // document.querySelectorAll(`.nav-auth.${data.userType}`)
-      //         .forEach(el => el.classList.remove('hidden'));
       
       updateAuthUI(data);
 
@@ -174,10 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const res  = await fetch('/auth/logout', { method: 'POST' });
       const data = await res.json();
       if (data.success) {
-        logoutLi.classList.add('hidden');
-        loginLi.classList.remove('hidden');
-        document.querySelectorAll('.nav-auth')
-                .forEach(el => el.classList.add('hidden'));
+        updateAuthUI(data.user);
       } else {
         console.error('Logout failed:', data.message);
       }
