@@ -21,9 +21,11 @@ const userSchema = new mongoose.Schema({
     lowercase: true,
     match: [/.+@.+\..+/, 'Please enter a valid email']
   },
-  isAdmin: {
-    type: Boolean,
-    default: false
+    userType: {
+    type: String,
+    enum: ['admin', 'organization'],
+    required: true,
+    default: 'organization'
   },
   otp: {
     code: { type: String, trim: true },
