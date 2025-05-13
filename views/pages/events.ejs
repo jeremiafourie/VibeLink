@@ -1,28 +1,34 @@
+<!-- views/events.ejs (updated) :contentReference[oaicite:0]{index=0}:contentReference[oaicite:1]{index=1} -->
 <%- include('../partials/header') %>
 
 <section class="events-section">
   <div class="container">
 
     <div class="events-intro">
-      <p>The VibeLink community is built on connection and shared experiences. Browse our upcoming events and join us in building a stronger community together.</p>
+      <!-- Search box -->
+      <input
+        type="text"
+        id="search-input"
+        class="search-input"
+        placeholder="Search events…"
+      />
 
       <% /* — Create Event button (admin only) — */ %>
       <button
         id="create-event-btn"
         class="auth-only hidden btn btn-primary"
         data-user-type="admin"
-        style="float: right;"
       >
         Create Event
       </button>
     </div>
 
     <div class="events-filter">
-        <div class="filter-controls">
-          <button class="filter-btn active" data-filter="all">All Events</button>
-          <button class="filter-btn" data-filter="Workshop">Workshops</button>
-          <button class="filter-btn" data-filter="Community">Community</button>
-        <button class="filter-btn" data-filter="Family">Family</button>
+      <div class="filter-controls">
+        <button class="filter-btn active"   data-filter="all">All Events</button>
+        <button class="filter-btn"          data-filter="Workshop">Workshops</button>
+        <button class="filter-btn"          data-filter="Community">Community</button>
+        <button class="filter-btn"          data-filter="Family">Family</button>
       </div>
     </div>
 
@@ -109,7 +115,7 @@
 
       <div>
         <label for="event-image">Image URL</label>
-        <input type="string" id="event-image" name="image">
+        <input type="text" id="event-image" name="image">
       </div>
 
       <button type="submit" id="event-submit-btn" class="btn btn-primary">

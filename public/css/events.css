@@ -1,3 +1,5 @@
+/* public/css/events.css (updated) */
+
 /* Utility helper to hide things */
 .hidden {
   display: none !important;
@@ -14,7 +16,6 @@
   z-index: 1000;
 }
 .modal.hidden {
-  /* ensure it’s hidden when we add .hidden */
   display: none !important;
 }
 .modal-overlay {
@@ -49,26 +50,37 @@
   padding: 0 1rem;
 }
 
-/* Events Section */
+/* — Updated Intro: flex for search + button — */
 .events-intro {
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   max-width: 800px;
   margin: 0 auto 48px;
-  position: relative; /* for Create button positioning */
 }
 
+/* New search-box styling */
+.search-input {
+  flex: 1;
+  max-width: 400px;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  margin-right: 1rem;
+}
+
+/* Events Filter */
 .events-filter {
   margin-bottom: 32px;
   text-align: center;
 }
-
 .filter-controls {
   display: inline-flex;
   border-radius: 0.25rem;
   padding: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
 .filter-btn {
   background-color: transparent;
   border: none;
@@ -78,13 +90,13 @@
   font-weight: 500;
   transition: all 0.3s ease;
 }
-
 .filter-btn.active,
 .filter-btn:hover {
   background: linear-gradient(45deg, #00C6FF, #8E2DE2);
   color: var(--white);
 }
 
+/* Event day badge */
 .event-day {
   position: absolute;
   top: 16px;
@@ -97,45 +109,10 @@
   text-align: center;
 }
 
-/* Host Event Section */
-.host-event {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #f3f4f6;
-}
-
-.host-info {
-  text-align: center;
-  max-width: 32rem;
-  margin: 0 auto;
-  padding: 0.5rem;
-  background: #ffffff;
-  border-radius: 0.5rem;
-}
-
-.host-info h2 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-
-.host-info p {
-  margin-bottom: 1.5rem;
-}
-
-/* — Create Event button positioning — */
-#create-event-btn {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
-/* — Per-card action buttons positioning — */
+/* Per-card action buttons positioning */
 .event-card {
   position: relative; /* for positioning the action bar */
 }
-
 .event-card-actions {
   position: absolute;
   bottom: 1rem;
@@ -144,8 +121,32 @@
   display: flex;
   justify-content: space-between;
 }
-
-/* Ensure buttons inside action bar don’t stretch */
 .event-card-actions .btn {
   flex: 0 0 auto;
 }
+
+/* Host Event Section */
+.host-event {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3f4f6;
+}
+.host-info {
+  text-align: center;
+  max-width: 32rem;
+  margin: 0 auto;
+  padding: 0.5rem;
+  background: #ffffff;
+  border-radius: 0.5rem;
+}
+.host-info h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.host-info p {
+  margin-bottom: 1.5rem;
+}
+
+/* Removed previous absolute positioning for #create-event-btn */

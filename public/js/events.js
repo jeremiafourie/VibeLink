@@ -1,4 +1,4 @@
-// public/js/events.js
+// public/js/events.js (updated) :contentReference[oaicite:3]{index=3}:contentReference[oaicite:4]{index=4}
 document.addEventListener('DOMContentLoaded', () => {
   // — grab elements —
   const createBtn      = document.getElementById('create-event-btn');
@@ -21,30 +21,45 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentEventId = null;
   let isUpdate       = false;
 
-  const filterBtns = document.querySelectorAll('.filter-btn');
-    const eventItems = document.querySelectorAll('.event-card');
+  // — search + filter setup —
+  const searchInput   = document.getElementById('search-input');
+  const filterBtns    = document.querySelectorAll('.filter-btn');
+  const eventItems    = document.querySelectorAll('.event-card');
 
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
+  let searchTerm     = '';
+  let categoryFilter = 'all';
 
-        const filterValue = btn.dataset.filter; 
-
-        eventItems.forEach(item => {
-          // Get the category
-          const category = item.dataset.category; 
-          if (filterValue === 'all' || category === filterValue) {
-            item.style.display = 'block';
-          } else {
-            item.style.display = 'none';
-          }
-        });
-      });
+  // unified filter function
+  function applyFilters() {
+    eventItems.forEach(card => {
+      const title    = card.querySelector('h3').textContent.toLowerCase();
+      const category = card.dataset.category;
+      const matchesCategory = (categoryFilter === 'all' || category === categoryFilter);
+      const matchesSearch   = title.includes(searchTerm);
+      card.style.display = (matchesCategory && matchesSearch) ? 'block' : 'none';
     });
+  }
 
-  // — shared open/close logic —
-  function openModal(m) { m.classList.remove('hidden'); }
+  // category buttons
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      categoryFilter = btn.dataset.filter;
+      applyFilters();
+    });
+  });
+
+  // live search
+  if (searchInput) {
+    searchInput.addEventListener('input', e => {
+      searchTerm = e.target.value.trim().toLowerCase();
+      applyFilters();
+    });
+  }
+
+  // — shared open/close modal logic —
+  function openModal(m)  { m.classList.remove('hidden'); }
   function closeModal(m) { m.classList.add('hidden'); }
   closeButtons.forEach(b => b.addEventListener('click', () => {
     closeModal(eventModal); closeModal(deleteModal);
@@ -53,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
     closeModal(eventModal); closeModal(deleteModal);
   }));
 
-  // — Create button —
+  // — Create Event button —
   if (createBtn) {
     createBtn.addEventListener('click', () => {
       isUpdate = false;
@@ -67,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // — per-card Update/Delete wiring —
   document.querySelectorAll('.event-card').forEach(card => {
-    const id = card.dataset.id;
+    const id     = card.dataset.id;
     const delBtn = card.querySelector('.delete-event-btn');
     const updBtn = card.querySelector('.update-event-btn');
 
@@ -82,15 +97,11 @@ document.addEventListener('DOMContentLoaded', () => {
         // populate fields
         titleIn.value = card.querySelector('h3').textContent;
         descIn.value  = card.querySelector('.event-description').textContent;
-        // date comes in DD/MM/YYYY
-        const [d, m, y] = card
-          .querySelector('.event-meta p')
-          .textContent.split('/');
-        dateIn.value = `${y}-${m}-${d}`;
-
-        locIn.value = card.querySelector('.event-meta p:nth-child(2)').textContent;
-        catIn.value = card.dataset.category;
-        imgIn.value = card.querySelector('img').src;
+        const [d, m, y] = card.querySelector('.event-meta p').textContent.split('/');
+        dateIn.value   = `${y}-${m}-${d}`;
+        locIn.value    = card.querySelector('.event-meta p:nth-child(2)').textContent;
+        catIn.value    = card.dataset.category;
+        imgIn.value    = card.querySelector('img').src;
 
         openModal(eventModal);
       });
@@ -137,9 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // — delete confirmation —
   confirmDelBtn.addEventListener('click', async () => {
     try {
-      const res = await fetch(`/admin/events/${currentEventId}`, {
-        method: 'DELETE'
-      });
+      const res = await fetch(`/admin/events/${currentEventId}`, { method: 'DELETE' });
       if (!res.ok) throw new Error(res.statusText);
       location.reload();
     } catch (err) {
