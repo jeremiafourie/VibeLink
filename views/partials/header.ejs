@@ -18,21 +18,40 @@
       </div>
       <nav>
         <ul class="nav-links">
-          <li><a href="/" class="<%= title === 'Home' ? 'active' : '' %>">Home</a></li>
-          <li><a href="/about" class="<%= title === 'About' ? 'active' : '' %>">About</a></li>
-          <li><a href="/events" class="<%= title === 'Events' ? 'active' : '' %>">Events</a></li>
-          <li><a href="/contact" class="<%= title === 'Contact' ? 'active' : '' %>">Contact</a></li>
 
-          <!-- login / logout toggles -->
-          <li id="login-li"><button id="login-btn"  class="btn btn-primary">Log in</button></li>
-          <li id="logout-li" class="hidden" >
+          <li><a href="/"       class="<%= title==='Home'    ? 'active':'' %>">Home</a></li>
+          <li><a href="/about"  class="<%= title==='About'   ? 'active':'' %>">About</a></li>
+          <li><a href="/events" class="<%= title==='Events'  ? 'active':'' %>">Events</a></li>
+
+          <!-- contact: show to guests & orgs, hide for admins -->
+          <li id="contact-nav"
+              class="<% if (user && user.userType==='admin') { %>hidden<% } %>">
+            <a href="/contact" class="<%= title==='Contact' ? 'active':'' %>">Contact</a>
+          </li>
+
+          <!-- admin‐only links (hidden by default) -->
+          <li class="nav-auth admin hidden">
+            <a href="/organizations" class="<%= title==='Users' ? 'active':'' %>">Organizations</a>
+          </li>
+          <li class="nav-auth admin hidden">
+            <a href="/submissions" class="<%= title==='Submission' ? 'active':'' %>">
+              Submissions
+            </a>
+          </li>
+
+          <!-- login / logout -->
+          <li id="login-li"  class="<% if (user) { %>hidden<% } %>">
+            <button id="login-btn"  class="btn btn-primary">Log in</button>
+          </li>
+          <li id="logout-li" class="hidden<% if (user) { %> <% } %>">
             <button id="logout-btn" class="btn btn-primary">Log out</button>
           </li>
+
         </ul>
       </nav>
     </div>
   </header>
   <%- include('../partials/loginModal') %>
 
-  <script src="../js/loginModal.js"></script>
+  <script src="/js/loginModal.js" defer></script>
   <main>

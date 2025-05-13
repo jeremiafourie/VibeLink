@@ -3,6 +3,19 @@ function updateAuthUI(user) {
   document.getElementById('login-li') .classList.toggle('hidden', !!user);
   document.getElementById('logout-li').classList.toggle('hidden', !user);
 
+    // 2) admin‐only nav links
+  document.querySelectorAll('.nav-auth.admin').forEach(el => {
+    el.classList.toggle('hidden', !(user && user.userType==='admin'));
+  });
+
+  // 3) contact link: hide for admin, show otherwise
+  const contactNav = document.getElementById('contact-nav');
+  if (user && user.userType==='admin') {
+    contactNav.classList.add('hidden');
+  } else {
+    contactNav.classList.remove('hidden');
+  }
+
   // header nav-auth links
   document.querySelectorAll('.nav-auth').forEach(el => {
     const role = el.classList.contains('admin') ? 'admin' : 'organization';
