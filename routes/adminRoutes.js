@@ -73,4 +73,21 @@ router.delete('/events/:id', async (req, res) => {
   }
 });
 
+// PATCH /admin/submissions/:id
+// body: { contacted: true|false }
+router.patch('/submissions/:id', async (req, res) => {
+  try {
+    const { contacted } = req.body;
+    const sub = await Submission.findByIdAndUpdate(
+      req.params.id,
+      { contacted },
+      { new: true, runValidators: true }
+    );
+    if (!sub) throw new Error('Not found');
+    return res.json({ success: true, contacted: sub.contacted });
+  } catch (err) {
+    return res.status(400).json({ success: false, message: err.message });
+  }
+});
+
 module.exports = router;
