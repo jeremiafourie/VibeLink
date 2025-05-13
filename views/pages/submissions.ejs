@@ -3,7 +3,17 @@
 <section class="submissions-section">
   <div class="container">
 
-    <!-- — Search bar, centered on top — -->
+    <!-- — Tab bar (use your existing filter-controls / filter-btn styles) — -->
+    <!-- Margin top is the only additional style so a inline style is used -->
+    <div style="margin-top: 5rem ;" class="events-filter submissions-filter"> 
+      <div class="filter-controls">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn"       data-filter="not">Not Contacted</button>
+        <button class="filter-btn"       data-filter="contacted">Contacted</button>
+      </div>
+    </div>
+
+        <!-- — Search bar, centered on top — -->
     <div class="sub-search">
       <input
         type="text"
@@ -11,15 +21,6 @@
         class="search-input"
         placeholder="Search submissions…"
       >
-    </div>
-
-    <!-- — Tab bar (use your existing filter-controls / filter-btn styles) — -->
-    <div class="events-filter submissions-filter">
-      <div class="filter-controls">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn"       data-filter="not">Not Contacted</button>
-        <button class="filter-btn"       data-filter="contacted">Contacted</button>
-      </div>
     </div>
 
     <!-- — List of submissions — -->
