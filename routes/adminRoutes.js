@@ -90,4 +90,40 @@ router.patch('/submissions/:id', async (req, res) => {
   }
 });
 
+// CREATE User
+router.post('/users', async (req, res) => {
+  try {
+    const user = await User.create(req.body);
+    res.status(201).json({ success: true, user });
+  } catch (err) {
+    res.status(400).json({ success: false, message: err.message });
+  }
+});
+
+// UPDATE User
+router.put('/users/:id', async (req, res) => {
+  try {
+    const user = await User.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true, runValidators: true }
+    );
+    if (!user) throw new Error('Not found');
+    res.json({ success: true, user });
+  } catch (err) {
+    res.status(400).json({ success: false, message: err.message });
+  }
+});
+
+// DELETE User
+router.delete('/users/:id', async (req, res) => {
+  try {
+    const u = await User.findByIdAndDelete(req.params.id);
+    if (!u) throw new Error('Not found');
+    res.json({ success: true });
+  } catch (err) {
+    res.status(400).json({ success: false, message: err.message });
+  }
+});
+
 module.exports = router;
