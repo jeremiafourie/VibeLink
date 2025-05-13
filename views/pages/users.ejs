@@ -3,27 +3,24 @@
 <section class="users-section">
   <div class="container">
 
-    <!-- Top row: search + New User -->
-    <div class="users-controls" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem; margin-top: 3rem;">
+    <!-- Tabs: All / Admin / Organization -->
+    <div class="users-tabs">
+      <button class="tab filter-btn active" data-filter="all">All</button>
+      <button class="tab filter-btn"        data-filter="admin">Admin</button>
+      <button class="tab filter-btn"        data-filter="organization">Organization</button>
+    </div>
+
+        <!-- Top row: search + New User -->
+    <div class="users-controls">
       <input
         id="user-search"
         type="text"
         class="search-input"
-        placeholder="Search users…"
-        style="flex:1;max-width:300px;padding:0.5rem;border:1px solid #ddd;border-radius:0.25rem;"
-      >
+        placeholder="Search users…">
       <button
         id="new-user-btn"
         class="btn btn-primary"
-        style="margin-left:1rem;"
       >New User</button>
-    </div>
-
-    <!-- Tabs: All / Admin / Organization -->
-    <div class="users-tabs" style="margin-bottom:1.5rem;text-align:center;">
-      <button class="tab filter-btn active" data-filter="all">All</button>
-      <button class="tab filter-btn"        data-filter="admin">Admin</button>
-      <button class="tab filter-btn"        data-filter="organization">Organization</button>
     </div>
 
     <!-- List of users -->
@@ -37,12 +34,11 @@
             data-name="<%= u.name %>"
             data-email="<%= u.email %>"
             data-phone="<%= u.phone %>"
-            style="position:relative;padding:1rem;border:1px solid #eee;border-radius:0.25rem;margin-bottom:1rem;"
           >
-            <p style="margin:0;font-weight:600;">
-              <%= u.name %> <span style="font-weight:400;">(<%= u.userType %>)</span>
+            <p>
+              <%= u.name %> <span >(<%= u.userType %>)</span>
             </p>
-            <p style="margin:0.25rem 0 0;font-size:0.9rem;color:#555;">
+            <p>
               <%= u.email %> │ <%= u.phone %>
             </p>
 
@@ -50,13 +46,7 @@
             <div
                 class="user-actions auth-only hidden"
                 data-user-type="admin"
-                style="
-                    position: absolute;
-                    bottom: 1rem;
-                    right: 1rem;
-                    display: flex;
-                    gap: 0.5rem;
-                "
+       
                 >
                 <button class="btn btn-secondary delete-user-btn">Delete</button>
                 <button class="btn btn-secondary update-user-btn">Update</button>

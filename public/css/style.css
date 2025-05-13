@@ -13,6 +13,8 @@
 @import url('./home.css');
 @import url('./tankyou.css');
 
+@import url('./users.css');
+
   * {
     box-sizing: border-box;
     margin: 0;

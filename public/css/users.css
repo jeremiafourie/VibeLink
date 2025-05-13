@@ -1,0 +1,70 @@
+.users-tabs {
+  margin-top: 5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.users-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  margin-top: 3rem;
+  gap: 1rem;
+}
+
+.search-input {
+  flex: 1;
+  max-width: 300px;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 0.25rem;
+}
+
+.btn-primary {
+  margin-left: 1rem;
+}
+
+.user-record {
+  position: relative;
+  padding: 1rem;
+  border: 1px solid #eee;
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.user-record p {
+  margin: 0;
+  font-weight: 600;
+}
+
+.user-record p span {
+  font-weight: 400;
+}
+
+.user-record p:nth-child(2) {
+  margin: 0.25rem 0 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.user-actions {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+/*BTN colors*/
+.btn-danger, .delete-user-btn{
+    background-color: red;
+}
+
+#cancel-delete-user-btn{
+    background-color: green;
+    color: white;
+}
+.update-user-btn{
+    background: linear-gradient(45deg, #00C6FF, #8E2DE2);
+}
