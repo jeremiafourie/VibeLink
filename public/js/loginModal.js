@@ -22,11 +22,14 @@ function updateAuthUI(user) {
     el.classList.toggle('hidden', !(user && role === user.userType));
   });
 
-  // page‐level auth-only blocks
-  document.querySelectorAll('.auth-only').forEach(el => {
+    document.querySelectorAll('.auth-only').forEach(el => {
+    // 1) never toggle anything that’s a modal
+    if (el.classList.contains('modal')) return;
+
+    // 2) showIf user matches data-user-type
     const showFor = el.dataset.userType; // "any"|"admin"|"organization"
-    const ok = user
-      && ( showFor === 'any' || showFor === user.userType );
+    const ok = user && (showFor === 'any' || showFor === user.userType);
+
     el.classList.toggle('hidden', !ok);
   });
 }
