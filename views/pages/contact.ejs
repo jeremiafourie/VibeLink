@@ -13,7 +13,9 @@
           </div>
           <div class="form-group">
             <label for="phone">Your Phone</label>
-            <input id="phone" type="text" name="phone" placeholder="Enter your phone number" required />
+            <input id="phone" type="tel" name="phone" placeholder="Enter your phone number"
+       required minlength="10" pattern="[0-9]+" />
+
           </div>
           <div class="form-group">
             <label for="email">Your Email</label>
@@ -71,14 +73,13 @@
         isValid = false;
         errMessage += "Name is required. \n"
       }
-
-      const phonePa = /^[0-9\s\-+()]{7,15}$;
+ /*
+      const phonePa = /^[0-9]+$;
       if (!phonePa.test(phone.value.trim())) {
         isValid =false;
         errMessage += "Enter a valid phone number."
       }
-
-
+*/
       const emailp = /^[^@\s]+@[^@\s]+\.[^@\s]+$;
       if (!emailp.test(email.value.trim())) {
        isValid = false;
@@ -96,4 +97,6 @@
       }
     })
   })
+
+  //minlength="10" pattern="/.*[0-9].*"
 </script>
