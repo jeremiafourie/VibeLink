@@ -42,15 +42,18 @@
   cursor: pointer;
 }
 
-.delete-event-btn,#confirm-delete-btn {
+#events-delete-btn-per-card,#confirm-delete-btn {
   background-color: red;
 }
 
 
 #cancel-delete-btn {
   background-color: green;
-}
 
+  
+}#events-update-btn-per-card{
+  background: linear-gradient(45deg, #00C6FF, #8E2DE2);
+}
 
 /* General Layout */
 .events-section .container {
