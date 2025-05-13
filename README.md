@@ -36,7 +36,7 @@ A dynamic community portal website built with Node.js, Express, and EJS.
 
 ![Home Page 2nd section](/public/images/Website%20Screenshots/Home_page_2nd_section.png?raw=true "Home Page 2nd section")
 
-![Home Page 3rd section](/public/images/Website%20Screenshots/Home_page_3rd_section_and_footer.png.png?raw=true "Home Page 3rd section")
+![Home Page 3rd section](/public/images/Website%20Screenshots/Home_page_3rd_section_and_footer.png?raw=true "Home Page 3rd section")
 
 ### About Page screenshots
 
