@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const Event  = require('../models/Event');
 const Submission = require('../models/Submission');
+const User = require('../models/User');
 
 // — all admin routes require an admin session —
 router.use((req, res, next) => {
@@ -13,7 +14,7 @@ router.use((req, res, next) => {
 // Organizations page – list all organizations
 router.get('/users', async (req, res, next) => {
   try {
-    const users = await user.find();
+    const users = await User.find();
     res.render('pages/users', {
       title: 'Users',
       users
