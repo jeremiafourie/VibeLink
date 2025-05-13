@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const Event  = require('../models/Event');
+const Submission = require('../models/Submission');
 
 // — all admin routes require an admin session —
 router.use((req, res, next) => {
@@ -7,6 +8,32 @@ router.use((req, res, next) => {
     return res.status(403).json({ success: false, message: 'Forbidden' });
   }
   next();
+});
+
+// Organizations page – list all organizations
+router.get('/users', async (req, res, next) => {
+  try {
+    const users = await user.find();
+    res.render('pages/users', {
+      title: 'Users',
+      users
+    });
+  } catch (err) {
+    next(err);
+  }
+});
+
+// Submissions page – list all submissions
+router.get('/submissions', async (req, res, next) => {
+  try {
+    const submissions = await Submission.find();
+    res.render('pages/submissions', {
+      title: 'Submissions',
+      submissions
+    });
+  } catch (err) {
+    next(err);
+  }
 });
 
 // CREATE
