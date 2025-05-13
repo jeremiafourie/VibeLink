@@ -12,7 +12,7 @@ const submissionSchema = new mongoose.Schema({
     required: [true, 'Please provide your phone number'],
     trim: true,
     // match: [
-    //   /^\+[1-9]\d{4,14}$/,
+    //   /^\+[1-9]\d{4,14}$/, 
     //   'Phone must be E.164 format (e.g. +27111234567) — no leading “0” after the country code'
     // ]
   },
@@ -28,6 +28,10 @@ const submissionSchema = new mongoose.Schema({
     required: [true, 'Please enter a message'],
     trim: true,
     maxlength: [1000, 'Message can be at most 1000 characters']
+  },
+  contacted: {
+    type: Boolean,
+    default: false
   }
 }, {
   // Auto-manage a `created` timestamp only
