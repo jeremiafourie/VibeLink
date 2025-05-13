@@ -6,7 +6,7 @@
   </video>
   <div class="container">
       <div class="hero-content">
-          <h1>Welcome to our Community</h1>
+          <h1>Welcome to our Community Portal</h1>
           <p>Where people with the same vibe can get together</p>
           <div class="hero-buttons">
               <a href="/events" class="btn btn-primary">Explore Events</a>
@@ -35,7 +35,8 @@
               <div class="event-details">
                 <h3><%= event.title %></h3>
                 <div class="event-meta">
-                  <p> <%= event.date %></p>
+                  <!-- Change the format of the date to be "dd/mm/yyyy" -->
+                  <p> <%= event.date.toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' }) %></p>
                   <p> <%= event.location %></p>
                 </div>
                 <p class="event-description"><%= event.description %></p>

@@ -129,12 +129,12 @@ mongoose
     }
 
     // default admin
-    if (await User.countDocuments({ isAdmin: true }) === 0) {
+    if (await User.countDocuments({ userType: 'admin' }) === 0) {
       await User.create({
         name:    process.env.ADMIN_NAME  || 'Admin User',
         email:   process.env.ADMIN_EMAIL || 'admin@example.com',
         phone:   process.env.ADMIN_PHONE || '+27111234567',
-        isAdmin: true
+        userType: 'admin'
       });
       console.log('Seeded default admin user');
     }
@@ -157,6 +157,12 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+app.use((req, res, next) => {
+  res.locals.user = req.session.user || null;
+  next();
+});
 
 // ————————————————————————————————————————————————————————————————
 // Routes

@@ -1,0 +1,108 @@
+<%- include('../partials/header') %>
+
+<section class="users-section">
+  <div class="container">
+
+    <!-- Tabs: All / Admin / Organization -->
+    <div class="users-tabs">
+      <button class="tab filter-btn active" data-filter="all">All</button>
+      <button class="tab filter-btn"        data-filter="admin">Admin</button>
+      <button class="tab filter-btn"        data-filter="organization">Organization</button>
+    </div>
+
+        <!-- Top row: search + New User -->
+    <div class="users-controls">
+      <input
+        id="user-search"
+        type="text"
+        class="search-input"
+        placeholder="Search users…">
+      <button
+        id="new-user-btn"
+        class="btn btn-primary"
+      >New User</button>
+    </div>
+
+    <!-- List of users -->
+    <div id="users-container" class="users-list">
+      <% if (users.length) { %>
+        <% users.forEach(u => { %>
+          <div
+            class="user-record"
+            data-id="<%= u._id %>"
+            data-user-type="<%= u.userType %>"
+            data-name="<%= u.name %>"
+            data-email="<%= u.email %>"
+            data-phone="<%= u.phone %>"
+          >
+            <p>
+              <%= u.name %> <span >(<%= u.userType %>)</span>
+            </p>
+            <p>
+              <%= u.email %> │ <%= u.phone %>
+            </p>
+
+            <!-- Admin-only action buttons -->
+            <div
+                class="user-actions auth-only hidden"
+                data-user-type="admin"
+       
+                >
+                <button class="btn btn-secondary delete-user-btn">Delete</button>
+                <button class="btn btn-secondary update-user-btn">Update</button>
+                </div>
+                </div>
+                <% }) %>
+                <% } else { %>
+                    <p class="no-data">No users found.</p>
+                <% } %>
+            </div>
+  </div>
+</section>
+
+<!-- Create / Update User Modal -->
+<div id="user-modal" class="modal hidden auth-only" data-user-type="admin">
+  <div class="modal-overlay"></div>
+  <div class="modal-content">
+    <button class="modal-close">&times;</button>
+    <h2 id="user-modal-title">New User</h2>
+    <form id="user-form">
+      <input type="hidden" id="user-id" name="id">
+      <div>
+        <label for="user-name">Name</label>
+        <input type="text" id="user-name" name="name" required maxlength="100">
+      </div>
+      <div>
+        <label for="user-email">Email</label>
+        <input type="email" id="user-email" name="email" required>
+      </div>
+      <div>
+        <label for="user-phone">Phone</label>
+        <input type="text" id="user-phone" name="phone" required>
+      </div>
+      <div>
+        <label for="user-type">Type</label>
+        <select id="user-type" name="userType" required>
+          <option value="admin">Admin</option>
+          <option value="organization">Organization</option>
+        </select>
+      </div>
+      <button type="submit" id="user-submit-btn" class="btn btn-primary">Create</button>
+    </form>
+  </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div id="delete-user-modal" class="modal hidden auth-only" data-user-type="admin">
+  <div class="modal-overlay"></div>
+  <div class="modal-content">
+    <button class="modal-close">&times;</button>
+    <h2>Confirm Delete</h2>
+    <p>Are you sure you want to delete this user?</p>
+    <button id="confirm-delete-user-btn" class="btn btn-danger">Delete</button>
+    <button id="cancel-delete-user-btn"  class="btn btn-secondary">Cancel</button>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>
+<script src="/js/users.js" defer></script>

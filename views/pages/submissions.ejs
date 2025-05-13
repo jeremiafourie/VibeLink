@@ -1,0 +1,58 @@
+<%- include('../partials/header') %>
+
+<section class="submissions-section">
+  <div class="container">
+
+    <!-- — Tab bar (use your existing filter-controls / filter-btn styles) — -->
+    <!-- Margin top is the only additional style so a inline style is used -->
+    <div style="margin-top: 5rem ;" class="events-filter submissions-filter"> 
+      <div class="filter-controls">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn"       data-filter="not">Not Contacted</button>
+        <button class="filter-btn"       data-filter="contacted">Contacted</button>
+      </div>
+    </div>
+
+        <!-- — Search bar, centered on top — -->
+    <div class="sub-search">
+      <input
+        type="text"
+        id="submission-search"
+        class="search-input"
+        placeholder="Search submissions…"
+      >
+    </div>
+
+    <!-- — List of submissions — -->
+    <div id="submissions-container" class="submissions-list">
+      <% if (submissions.length) { %>
+        <% submissions.forEach(sub => { %>
+          <div
+            class="submission-record"
+            data-id="<%= sub._id %>"
+            data-contacted="<%= sub.contacted %>"
+          >
+            <div class="submission-info">
+              <p><strong><%= sub.name %></strong></p>
+              <p><%= sub.email %></p>
+              <p><%= sub.phone %></p>
+              <p><%= sub.message %></p>
+            </div>
+            <div class="submission-action">
+              <button
+                class="btn <%= sub.contacted ? 'btn-secondary' : 'btn-primary' %> action-btn"
+              >
+                <%= sub.contacted ? 'Mark Not Contacted' : 'Mark Contacted' %>
+              </button>
+            </div>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <p class="no-data">No submissions found.</p>
+      <% } %>
+    </div>
+  </div>
+</section>
+
+<%- include('../partials/footer') %>
+<script src="/js/submissions.js" defer></script>

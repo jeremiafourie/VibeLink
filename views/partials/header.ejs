@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= title %> | VibeLink</title>
   <link rel="stylesheet" href="/css/style.css">
-    <link rel="shortcut icon" href="images/vibelink-logo.png" type="image/x-icon">
+  <link rel="shortcut icon" href="images/vibelink-logo.png" type="image/x-icon">
 </head>
 <body>
   <header id="main-header">
@@ -18,13 +18,38 @@
       </div>
       <nav>
         <ul class="nav-links">
-          <li><a href="/" class="<%= title === 'Home' ? 'active' : '' %>">Home</a></li>
-          <li><a href="/about" class="<%= title === 'About' ? 'active' : '' %>">About</a></li>
-          <li><a href="/events" class="<%= title === 'Events' ? 'active' : '' %>">Events</a></li>
-          <li><a href="/contact" class="<%= title === 'Contact' ? 'active' : '' %>">Contact</a></li>
-          <li><button id="login-btn" class="btn btn-primary">Log in</button></li>
+
+          <li><a href="/"       class="<%= title==='Home'    ? 'active':'' %>">Home</a></li>
+          <li><a href="/about"  class="<%= title==='About'   ? 'active':'' %>">About</a></li>
+          <li><a href="/events" class="<%= title==='Events'  ? 'active':'' %>">Events</a></li>
+
+          <!-- contact: show to guests & orgs, hide for admins -->
+          <li id="contact-nav"
+              class="<% if (user && user.userType==='admin') { %>hidden<% } %>">
+            <a href="/contact" class="<%= title==='Contact' ? 'active':'' %>">Contact</a>
+          </li>
+
+          <!-- admin‐only links (hidden by default) -->
+          <li class="nav-auth admin hidden">
+            <a href="/admin/users" class="<%= title==='Users' ? 'active':'' %>">Users</a>
+          </li>
+          <li class="nav-auth admin hidden">
+            <a href="/admin/submissions" class="<%= title==='Submissions' ? 'active':'' %>">Submissions</a>
+          </li>
+
+          <!-- login / logout -->
+          <li id="login-li"  class="<% if (user) { %>hidden<% } %>">
+            <button id="login-btn"  class="btn btn-primary">Log in</button>
+          </li>
+          <li id="logout-li" class="hidden<% if (user) { %> <% } %>">
+            <button id="logout-btn" class="btn btn-primary">Log out</button>
+          </li>
+
         </ul>
       </nav>
     </div>
   </header>
+  <%- include('../partials/loginModal') %>
+
+  <script src="/js/loginModal.js" defer></script>
   <main>
