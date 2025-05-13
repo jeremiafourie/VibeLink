@@ -51,23 +51,30 @@
 }
 
 /* — Updated Intro: flex for search + button — */
-.events-intro {
+.events-intro{
   display: flex;
   justify-content: space-between;
   align-items: center;
   max-width: 800px;
-  margin: 0 auto 48px;
+  margin: 0 auto;
+  margin-bottom: 1rem;
 }
 
-/* New search-box styling */
+.events-search {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+}
+
 .search-input {
-  flex: 1;
-  max-width: 400px;
+  flex: 0 1 400px; 
   padding: 0.5rem 1rem;
   border: 1px solid #ccc;
   border-radius: 0.25rem;
   font-size: 1rem;
-  margin-right: 1rem;
 }
 
 /* Events Filter */
