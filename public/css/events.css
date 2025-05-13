@@ -42,6 +42,16 @@
   cursor: pointer;
 }
 
+.delete-event-btn,#confirm-delete-btn {
+  background-color: red;
+}
+
+
+#cancel-delete-btn {
+  background-color: green;
+}
+
+
 /* General Layout */
 .events-section .container {
   width: 100%;
@@ -157,3 +167,44 @@
 }
 
 /* Removed previous absolute positioning for #create-event-btn */
+
+/* Event Form Styling */
+#event-modal-title{
+  text-align: center;
+}
+
+#event-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+#event-form div {
+  margin-bottom: 0.5rem;
+  width: 80%;
+}
+#event-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+#event-form input,
+#event-form textarea,
+#event-form select {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+}
+#event-form textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+#event-form button[type="submit"] {
+  margin-top: 0.2rem;
+  padding: 0.75rem 1rem;
+  max-width: 200px;
+}
