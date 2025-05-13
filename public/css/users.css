@@ -68,3 +68,37 @@
 .update-user-btn{
     background: linear-gradient(45deg, #00C6FF, #8E2DE2);
 }
+
+/*Add user form*/
+#user-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+#user-form div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+#user-form label {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+#user-form input,
+#user-form select {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 0.25rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#user-form button[type="submit"] {
+  margin-top: 1rem;
+  align-self: center;
+  padding: 0.75rem 1.5rem;
+}
