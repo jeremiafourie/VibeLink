@@ -54,3 +54,46 @@
 </main>
 
 <%- include('../partials/footer') %>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () =>{
+    const form = document.querySelector(form);
+
+    form.addEventListener('submit', function (e) {
+      const name = document.getElementById('name');
+      const phone = document.getElementById('phone');
+      const email = document.getElementById('email');
+      const message = document.getElementById('message');
+      let isValid = true;
+      let errMessage = "";
+
+      if (name.value.trim() ==="") {
+        isValid = false;
+        errMessage += "Name is required. \n"
+      }
+
+      const phonePa = /^[0-9\s\-+()]{7,15}$;
+      if (!phonePa.test(phone.value.trim())) {
+        isValid =false;
+        errMessage += "Enter a valid phone number."
+      }
+
+
+      const emailp = /^[^@\s]+@[^@\s]+\.[^@\s]+$;
+      if (!emailp.test(email.value.trim())) {
+       isValid = false;
+       errMessage += "Enter a valid email address." 
+      }
+
+      if (message.value.trim() === "") {
+        isValid = false;
+        errMessage += "Message cannot be empty"
+      }
+
+      if (!isValid) {
+        e.preventDefault();
+        alert(errMessage)
+      }
+    })
+  })
+</script>
