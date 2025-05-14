@@ -14,6 +14,10 @@ A dynamic community portal website built with Node.js, Express, and EJS.
 - CSS
 - Git & GitHub
 - Nodemon
+- Mongoose (Mongo DB for a database backend)
+- UAZAPI (API for whatsapp integration)
+- nodemailer (For email integration )
+
 
 ## Team Members and Roles
 
@@ -27,6 +31,26 @@ A dynamic community portal website built with Node.js, Express, and EJS.
 1. Clone the repository: `git clone https://github.com/jeremiafourie/VibeLink.git`
 2. Install dependencies: `npm install`
 3. Run in development mode: `npm run dev`
+4. In order for the whatsapp integration and email serveries to work the following .env file structure is recommend:
+````
+MONGO_URI= ... 
+SESSION_SECRET= ...
+
+# Uazapi Credentials for WhatsApp integration
+UAZAPI_BASEURL=https://donna.uazapi.com
+UAZAPI_KEY= ...
+
+# SMTP for email
+EMAIL_HOST= ...
+EMAIL_PORT=465
+EMAIL_USER= ...
+EMAIL_PASS= ...
+
+# admin contact info
+ADMIN_Name= ...
+ADMIN_PHONE= ...
+ADMIN_EMAIL= ...
+````
 
 ## Screenshots from the regular user perspective
 
@@ -61,7 +85,7 @@ A dynamic community portal website built with Node.js, Express, and EJS.
 ## Screenshots from the admin perspective
 
 ### Home Page screenshots (The only difference being the nav bar that changes)
-![Admin home page](/public/images/Website%20Screenshots/Home_page_1st_section.png?raw=true "Home Page 1st section")
+![Admin home page](/public/images/Website%20Screenshots/Admin_Home_page.png?raw=true "Home Page 1st section")
 
 ### About Page screenshots
 
@@ -96,10 +120,6 @@ Stays the same as on the regular user page
 
 ### Submissions Page (Filter applied)
 ![Admin submissions Page](/public/images/Website%20Screenshots/Admin_Submissions_filtered.png?raw=true "Admin submissions Page")
-
-
-
-#### Button update user click on users page
 
 ## Reflection
 
