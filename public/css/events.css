@@ -1,5 +1,3 @@
-/* public/css/events.css (updated) */
-
 /* Utility helper to hide things */
 .hidden {
   display: none !important;
@@ -131,7 +129,7 @@
 
 /* Per-card action buttons positioning */
 .event-card {
-  position: relative; /* for positioning the action bar */
+  position: relative; 
 }
 .event-card-actions {
   position: absolute;
@@ -168,8 +166,6 @@
 .host-info p {
   margin-bottom: 1.5rem;
 }
-
-/* Removed previous absolute positioning for #create-event-btn */
 
 /* Event Form Styling */
 #event-modal-title{

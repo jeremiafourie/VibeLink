@@ -1,14 +1,10 @@
-
-/*======================================
-  1) Variables & Reset
-======================================*/
 :root {
     --gradient-start: #00C6FF;
     --gradient-end:   #8E2DE2;
     --text-light:     #ffffff;
     --bg-light:       #f9f9f9;
     --accent:         #222;
-    --header-height:  80px;  /* nav‐bar height */
+    --header-height:  80px;  
   
     --text-50: #f4eef6;
     --text-100: #e8ddee;
