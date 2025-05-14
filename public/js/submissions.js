@@ -1,5 +1,3 @@
-// public/js/submissions.js
-
 document.addEventListener('DOMContentLoaded', () => {
   const filterBtns  = document.querySelectorAll('.filter-btn');
   const searchInput = document.getElementById('submission-search');

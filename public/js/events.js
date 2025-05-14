@@ -1,4 +1,3 @@
-// public/js/events.js (updated) :contentReference[oaicite:3]{index=3}:contentReference[oaicite:4]{index=4}
 document.addEventListener('DOMContentLoaded', () => {
   // — grab elements —
   const createBtn      = document.getElementById('create-event-btn');

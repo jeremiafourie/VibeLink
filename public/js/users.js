@@ -1,5 +1,3 @@
-// public/js/users.js
-
 document.addEventListener('DOMContentLoaded', () => {
   // –– Tab & Search Setup ––
   const tabs        = document.querySelectorAll('.users-tabs .tab');
