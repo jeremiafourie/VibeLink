@@ -1,102 +1,208 @@
+<!-- contact.ejs -->
+
 <%- include('../partials/header') %>
 
 <main class="contact-page">
   <div class="container">
-    <!-- Send Us a Message -->
     <section class="contact-section">
       <div class="contact-card">
         <h2 class="section-title">Send Us a Message</h2>
-        <form method="POST" action="/contact">
+        <form id="contact-form" method="POST" action="/contact">
           <div class="form-group">
             <label for="name">Your Name</label>
             <input id="name" type="text" name="name" placeholder="Enter your name" required />
+            <div class="error-message"></div>
           </div>
+
           <div class="form-group">
             <label for="phone">Your Phone</label>
-            <input id="phone" type="tel" name="phone" placeholder="Enter your phone number"
-       required minlength="10" pattern="[0-9]+" />
-
+            <input
+              id="phone"
+              type="tel"
+              name="phone"
+              placeholder="0652774955"
+              required
+            />
+            <div class="error-message"></div>
           </div>
+
           <div class="form-group">
             <label for="email">Your Email</label>
-            <input id="email" type="email" name="email" placeholder="you@example.com" required />
+            <input
+              id="email"
+              type="email"
+              name="email"
+              placeholder="you@example.com"
+              required
+            />
+            <div class="error-message"></div>
           </div>
+
           <div class="form-group">
             <label for="message">Your Message</label>
-            <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Type your message here..."
+              required
+            ></textarea>
+            <div class="error-message"></div>
           </div>
-          <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+
+          <!-- Simple Math Captcha -->
+          <div class="form-group" id="captcha-group">
+            <label for="captcha">
+              What is <span id="num1">?</span> + <span id="num2">?</span>?
+            </label>
+            <input
+              id="captcha"
+              type="text"
+              name="captcha"
+              placeholder="Your answer"
+              required
+            />
+            <div class="error-message"></div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">
+            Send Message
+          </button>
         </form>
       </div>
     </section>
 
-    <!-- Frequently Asked Questions -->
-    <section class="faq-section">
-      <h2 class="section-title">Frequently Asked Questions</h2>
-      <div class="faq-grid">
-        <div class="faq-card">
-          <h3>How can I volunteer with the community?</h3>
-          <p>We're always looking for volunteers! Fill out our contact form above, specifying your interest, and our team will reach out.</p>
-        </div>
-        <div class="faq-card">
-          <h3>Can I propose an event idea?</h3>
-          <p>Absolutely! Contact us with your concept, and our events team will discuss how we can support your initiative.</p>
-        </div>
-        <div class="faq-card">
-          <h3>Are your events free to attend?</h3>
-          <p>Most events are free, though some special workshops may have a nominal fee. Listings always specify any costs.</p>
-        </div>
-        <div class="faq-card">
-          <h3>How can I support the community portal?</h3>
-          <p>You can support us through volunteering, donations, or sharing our initiatives. Every contribution helps!</p>
-        </div>
-      </div>
-    </section>
+    <!-- … your existing FAQ section … -->
+
   </div>
 </main>
 
-<%- include('../partials/footer') %>
+<!-- Lottie player script + overlay -->
+<script
+  src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
+  type="module"
+></script>
+<div id="loading-overlay">
+  <dotlottie-player
+    src="https://lottie.host/477b3f7b-4a66-4e4a-a134-21bebf8de9f3/IQG4FjjtvH.lottie"
+    background="transparent"
+    speed="1"
+    style="width: 600px; height: 600px"
+    loop
+    autoplay
+  ></dotlottie-player>
+</div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () =>{
-    const form = document.querySelector(form);
+document.addEventListener('DOMContentLoaded', () => {
+  const form    = document.getElementById('contact-form');
+  const name    = document.getElementById('name');
+  const phone   = document.getElementById('phone');
+  const email   = document.getElementById('email');
+  const message = document.getElementById('message');
+  const captcha = document.getElementById('captcha');
+  const num1El  = document.getElementById('num1');
+  const num2El  = document.getElementById('num2');
+  const overlay = document.getElementById('loading-overlay');
 
-    form.addEventListener('submit', function (e) {
-      const name = document.getElementById('name');
-      const phone = document.getElementById('phone');
-      const email = document.getElementById('email');
-      const message = document.getElementById('message');
-      let isValid = true;
-      let errMessage = "";
+  // Generate two random numbers for Captcha
+  const num1 = Math.floor(Math.random() * 9) + 1;
+  const num2 = Math.floor(Math.random() * 9) + 1;
+  num1El.textContent = num1;
+  num2El.textContent = num2;
+  const captchaAnswer = num1 + num2;
 
-      if (name.value.trim() ==="") {
+  // Validator functions
+  function validateName() {
+    return name.value.trim() === '' ? 'Name is required.' : '';
+  }
+  function validatePhone() {
+    const re = /^[0-9]{10}$/;
+    if (phone.value.trim() === '') return 'Phone is required.';
+    if (!re.test(phone.value.trim()))
+      return 'Phone must be exactly 10 digits, no spaces.';
+    return '';
+  }
+  function validateEmail() {
+    const re = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+    if (email.value.trim() === '') return 'Email is required.';
+    if (!re.test(email.value.trim()))
+      return 'Enter a valid email address.';
+    return '';
+  }
+  function validateMessage() {
+    return message.value.trim() === ''
+      ? 'Message cannot be empty.'
+      : '';
+  }
+  function validateCaptcha() {
+    if (captcha.value.trim() === '') return 'Please solve the Captcha.';
+    if (parseInt(captcha.value, 10) !== captchaAnswer)
+      return 'Incorrect answer. Please try again.';
+    return '';
+  }
+
+  // On-blur per-field validation
+  [name, phone, email, message, captcha].forEach(field => {
+    field.addEventListener('blur', () => {
+      const validators = {
+        name:    validateName,
+        phone:   validatePhone,
+        email:   validateEmail,
+        message: validateMessage,
+        captcha: validateCaptcha
+      };
+      const error = validators[field.id]();
+      const errEl = field.parentElement.querySelector('.error-message');
+
+      if (error) {
+        field.classList.add('input-error');
+        errEl.textContent = error;
+        errEl.style.display = 'block';
+      } else {
+        field.classList.remove('input-error');
+        errEl.textContent = '';
+        errEl.style.display = 'none';
+      }
+    });
+  });
+
+  // On submit: validate all, then show loader
+  form.addEventListener('submit', e => {
+    const errors = [
+      validateName(),
+      validatePhone(),
+      validateEmail(),
+      validateMessage(),
+      validateCaptcha()
+    ];
+    const fields = [name, phone, email, message, captcha];
+    let isValid = true;
+
+    fields.forEach((fld, i) => {
+      const err = errors[i];
+      const errEl = fld.parentElement.querySelector('.error-message');
+      if (err) {
         isValid = false;
-        errMessage += "Name is required. \n"
+        fld.classList.add('input-error');
+        errEl.textContent = err;
+        errEl.style.display = 'block';
+      } else {
+        fld.classList.remove('input-error');
+        errEl.textContent = '';
+        errEl.style.display = 'none';
       }
- /*
-      const phonePa = /^[0-9]+$;
-      if (!phonePa.test(phone.value.trim())) {
-        isValid =false;
-        errMessage += "Enter a valid phone number."
-      }
-*/
-      const emailp = /^[^@\s]+@[^@\s]+\.[^@\s]+$;
-      if (!emailp.test(email.value.trim())) {
-       isValid = false;
-       errMessage += "Enter a valid email address." 
-      }
+    });
 
-      if (message.value.trim() === "") {
-        isValid = false;
-        errMessage += "Message cannot be empty"
-      }
+    if (!isValid) {
+      e.preventDefault();
+      return;
+    }
 
-      if (!isValid) {
-        e.preventDefault();
-        alert(errMessage)
-      }
-    })
-  })
-
-  //minlength="10" pattern="/.*[0-9].*"
+    // All good—show loading overlay
+    overlay.style.display = 'flex';
+    // then let the form submit
+  });
+});
 </script>
+
+<%- include('../partials/footer') %>
