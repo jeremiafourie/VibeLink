@@ -364,3 +364,10 @@ section:not([class*="home-hero"]) {
   margin: 0 auto;
   width: 100%;
 }
+
+#login-modal .error-message {
+  position: relative;
+  z-index: 10;
+  display: block;      /* ensures it’s a block box */
+  overflow: visible;   /* in case it’s taller/wider than you expect */
+}

@@ -1,4 +1,3 @@
-// loginModal.js
 document.addEventListener('DOMContentLoaded', () => {
   // Elements
   const loginBtn   = document.getElementById('login-btn');
