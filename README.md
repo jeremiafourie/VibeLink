@@ -1,6 +1,10 @@
 # VibeLink
+> **Connecting communities through seamless event discovery and management**
 
-A dynamic community portal website built with Node.js, Express, and EJS.
+Welcome to **VibeLink**, your centralized hub for sharing, exploring, and organizing local events. Whether you’re planning a neighborhood picnic, hosting a community fair, or attending a workshop, VibeLink brings everyone together in one intuitive platform.
+
+🔗 **Live Site:** [**vibelink.exequtech.com**](https://vibelink.exequtech.com)
+*Deployed on Exequtech’s private server with Docker containers for rock‑solid reliability and scalability.*
 
 ## Overview
 - **Tech Stack**:  
