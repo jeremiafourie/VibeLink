@@ -33,7 +33,7 @@ A dynamic community portal website built with Node.js, Express, and EJS.
   Event data and admin login info is stored in **MongoDB** database. The in-memory `events` array gets the data for the events from the database.
 
 - **Event Management**:  
-  - Admins can add, update, or delete events through a secure login system. It’s protected by an **OTP (One-Time Password)** sent via WhatsApp to verified admin numbers.  
+  - Admins can add, update, or delete events through a secure login system. It’s protected by an **OTP (One-Time Password)** sent via WhatsApp and Email to verified admin numbers.  
   - Verified organizations can also contribute their own events using a similar OTP-verified login. 
 
 - **Contact Form**:  
