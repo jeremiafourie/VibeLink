@@ -67,7 +67,7 @@ A dynamic community portal website built with Node.js, Express, and EJS.
 1. Clone the repository: `git clone https://github.com/jeremiafourie/VibeLink.git`
 2. Install dependencies: `npm install`
 3. Run in development mode: `npm run dev`
-4. In order for the MongoDB, whatsapp integration and email serveries to work the following .env file structure is recommend:
+4. In order for the MongoDB, whatsapp integration and email services to work, the following .env file structure is recommend:
 ````
 MONGO_URI= ... 
 SESSION_SECRET= ...
