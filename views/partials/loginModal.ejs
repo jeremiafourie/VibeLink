@@ -1,35 +1,67 @@
+<!-- loginModal.ejs -->
+<script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
 <div id="login-modal" class="modal hidden">
   <div class="modal-overlay"></div>
   <div class="modal-content">
     <button type="button" class="modal-close" aria-label="Close">&times;</button>
 
-    <!-- Tabs -->
-    <div class="modal-header">
-      <button type="button" class="tab active" data-tab="organization">Organization</button>
-      <button type="button" class="tab" data-tab="admin">Admin</button>
-    </div>
-
     <!-- Body: Step 1 = phone input; Step 2 = OTP input -->
     <div class="modal-body">
       <!-- STEP 1: enter phone -->
       <div class="step" id="step-phone">
-        <label for="login-phone">Phone number</label>
-        <input type="text" id="login-phone" placeholder="+1555…" />
-        <div class="error-message" style="color: red; margin-top: 8px;"></div>
-        <button id="send-otp-btn" class="btn btn-primary" style="margin-top: 12px;">
-          Send OTP
-        </button>
+        <div class="login-logo-container">
+          <img src="/images/vibelink-logo.png" alt="Vibe Link Logo" class="login-logo">
+        </div>
+        <label for="login-phone">Enter your Cell Phone number:</label>
+        <input
+          type="text"
+          id="login-phone"
+          placeholder="000 000 0000"
+          maxlength="12"
+          required
+          style="display:block; margin:12px auto; width:160px; text-align:center; padding:5px;"
+        />
+        <div class="error-message" style="color: red; margin-top:8px;"></div>
+        <div style="text-align:center; margin-top:12px;">
+          <button id="send-otp-btn" class="btn btn-primary" style="width:80%;">Send OTP</button>
+        </div>
       </div>
 
       <!-- STEP 2: enter OTP -->
       <div class="step hidden" id="step-otp">
+        <!-- Lottie animation container -->
+        <div id="lottie-container" style="text-align:center;">
+          <dotlottie-player
+            src="https://lottie.host/0e1440c3-c12f-4e98-80c7-a50ab4b11e8b/kb3RqZhDQ0.lottie"
+            background="transparent"
+            speed="1"
+            style="width:300px; height:300px"
+            loop
+            autoplay
+          ></dotlottie-player>
+        </div>
+
         <p>We’ve sent an OTP to <span id="display-phone"></span></p>
         <label for="otp-code">Enter code</label>
-        <input type="text" id="otp-code" maxlength="6" />
-        <div class="status-message" style="margin-top: 8px;"></div>
-        <button id="verify-otp-btn" class="btn btn-primary" style="margin-top: 12px;">
+        <input
+          type="text"
+          id="otp-code"
+          maxlength="6"
+          style="display:block; margin:8px auto; width:120px; text-align:center; padding:5px;"
+        />
+        <div class="status-message" style="margin-top:8px;"></div>
+        <button id="verify-otp-btn" class="btn btn-primary" style="display:block; margin:12px auto;">
           Verify OTP
         </button>
+
+        <!-- SUCCESS MESSAGE -->
+        <div id="success-message" class="hidden" style="text-align:center; margin-top:20px;">
+          <!-- fade-in logo -->
+          <img src="/images/vibelink-logo.png" alt="Vibe Link Logo" class="login-logo" />
+
+          <!-- animated welcome text -->
+          <h2 id="welcome-message"></h2>
+        </div>
       </div>
     </div>
   </div>
