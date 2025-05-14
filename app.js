@@ -8,7 +8,6 @@ const pageRoutes  = require('./routes/pageRoutes');
 const authRoutes  = require('./routes/authRoutes');
 const adminRoutes = require('./routes/adminRoutes');
 
-// now that you have a models/ folder:
 const Team       = require('./models/Team');
 const Event      = require('./models/Event');
 const Submission = require('./models/Submission');
