@@ -62,6 +62,12 @@ ADMIN_EMAIL= ...
 
 ![Home Page 3rd section](/public/images/Website%20Screenshots/Home_page_3rd_section_and_footer.png?raw=true "Home Page 3rd section")
 
+### Login pop-up screenshots (This only appears when the user clicks the login button on the nav bar)
+
+![Login popup 1st section](/public/images/Website%20Screenshots/Login_btn_click.png?raw=true "Login popup 1st section")
+
+![Login popup 2nd section](/public/images/Website%20Screenshots/Login_send_opt_click.png?raw=true "Login popup 2nd section")
+
 ### About Page screenshots
 
 ![About Page](/public/images/Website%20Screenshots/About_page.png?raw=true "About Page")
