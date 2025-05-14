@@ -5,7 +5,7 @@ const User = require('../models/User');
 
 // — all admin routes require an admin session —
 router.use((req, res, next) => {
-  if (!req.session.user || req.session.user.userType !== 'admin') {
+  if (!req.session.user) {
     return res.status(403).json({ success: false, message: 'Forbidden' });
   }
   next();

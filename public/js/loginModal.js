@@ -32,8 +32,13 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.auth-only').forEach(el => {
       if (el.classList.contains('modal')) return;
       const showFor = el.dataset.userType;
-      const ok = user && (showFor==='any' || showFor===user.userType);
-      el.classList.toggle('hidden', !ok);
+      
+      if (user) {
+        el.classList.toggle('hidden', false);
+      } else {
+        el.classList.toggle('hidden', true);
+      }
+      
     });
   }
 
