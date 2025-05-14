@@ -54,15 +54,52 @@ A dynamic community portal website built with Node.js, Express, and EJS.
 
 ![Contact Page 2nd section](/public/images/Website%20Screenshots/Contact_page_2nd_section.png?raw=true "Contact Page 2nd section")
 
+### Thank you page (Appears after a contact form submission)
+![Thank you page](/public/images/Website%20Screenshots/Thank_you_page.png?raw=true "Thank you page")
+
+
 ## Screenshots from the admin perspective
 
-### Home Page screenshots
+### Home Page screenshots (The only difference being the nav bar that changes)
+![Admin home page](/public/images/Website%20Screenshots/Home_page_1st_section.png?raw=true "Home Page 1st section")
 
 ### About Page screenshots
 
-### Events Page screenshots
+Stays the same as on the regular user page
 
-### Contact Page screenshots
+### Events Page screenshots
+![Admin events Page](/public/images/Website%20Screenshots/Admin_events.png?raw=true "Admin events Page")
+
+#### Button create event click on events page
+![Admin events Page btn add](/public/images/Website%20Screenshots/Admin_event_create_btn_click.png?raw=true "Admin events Page btn add")
+
+#### Button delete event click on events page
+![Admin events Page btn delete](/public/images/Website%20Screenshots/Admin_event_delete_btn_click.png?raw=true "Admin events Page btn delete")
+
+#### Button update event click on events page
+![Admin events Page btn update](/public/images/Website%20Screenshots/Admin_events_update_btn_click.png?raw=true "Admin events Page btn update")
+
+### Users Page
+![Admin users Page](/public/images/Website%20Screenshots/Admin_Users_page.png?raw=true "Admin events Page")
+
+#### Button new user click on users page
+![Admin users Page btn add](/public/images/Website%20Screenshots/Admin_Users_addUser_btn_click.png?raw=true "Admin users Page btn add")
+
+#### Button delete user click on users page
+![Admin users Page btn delete](/public/images/Website%20Screenshots/Admin_Users_delete_btn_click.png?raw=true "Admin users Page btn delete")
+
+#### Button update user click on users page
+![Admin users Page btn delete](/public/images/Website%20Screenshots/Admin_Users_update_btn_click.png?raw=true "Admin users Page btn update")
+
+### Submissions Page (No filter applied)
+![Admin submissions Page](/public/images/Website%20Screenshots/Admin_submissions_not_filtered.png?raw=true "Admin submissions Page")
+
+### Submissions Page (Filter applied)
+![Admin submissions Page](/public/images/Website%20Screenshots/Admin_Submissions_filtered.png?raw=true "Admin submissions Page")
+
+
+
+#### Button update user click on users page
 
 ## Reflection
 
