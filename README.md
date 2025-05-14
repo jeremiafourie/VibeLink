@@ -3,8 +3,44 @@
 A dynamic community portal website built with Node.js, Express, and EJS.
 
 ## Overview
+- **Tech Stack**:  
+  The portal is built with **EJS** as the templating engin and **Node.js** for a backend environment. 
 
-[TODO: To be Discussed]
+- **Data Management**:  
+  We use **in-memory arrays** to store team and event data. Images are statically loaded via Node.js. Here is the structure for the in memory arrays:
+
+  ```javascript
+  const teamMembers = [
+    { name: "Jeremia Fourie", role: "Backend Developer" },
+    { name: "Waldo Blom",     role: "Frontend Developer" },
+    { name: "Itumeleng Monokoane", role: "Documentation Manager" },
+    { name: "Onalerona Lefoka",     role: "Data Manager" }
+  ];
+
+  const events = [
+    {
+      title: "Community Picnic",
+      date: "2025-06-15",
+      location: "Riverside Park",
+      description: "Bring your favorite dish and enjoy a fun-filled afternoon with neighbors and friends.",
+      eventCategory: "Community",
+      image: "/images/community_picnic.jpg"
+    }
+  ];
+  ```
+
+- **Database**:  
+  Event data and admin login info is stored in **MongoDB** database. The in-memory `events` array gets the data for the events from the database.
+
+- **Event Management**:  
+  - Admins can add, update, or delete events through a secure login system. It’s protected by an **OTP (One-Time Password)** sent via WhatsApp to verified admin numbers.  
+  - Verified organizations can also contribute their own events using a similar OTP-verified login. 
+
+- **Contact Form**:  
+ It includes:  
+  - Built-in validation to ensure phone numbers and emails are correctly formatted.  
+  - A **Captcha** to block any web scraping bots.  
+  - Confirmation of successful message via a Thank you page that loads as well as a **WhatsApp** and **email** once you submit.  
 
 ## Technologies Used
 
@@ -68,6 +104,8 @@ ADMIN_EMAIL= ...
 
 ![Login popup 2nd section](/public/images/Website%20Screenshots/Login_send_opt_click.png?raw=true "Login popup 2nd section")
 
+![Login popup 3rd section](/public/images/Website%20Screenshots/Login_welcome_pop_up.jpeg?raw=true "Login popup 3rd section")
+
 ### About Page screenshots
 
 ![About Page](/public/images/Website%20Screenshots/About_page.png?raw=true "About Page")
@@ -110,7 +148,7 @@ Stays the same as on the regular user page
 ![Admin events Page btn update](/public/images/Website%20Screenshots/Admin_events_update_btn_click.png?raw=true "Admin events Page btn update")
 
 ### Users Page
-![Admin users Page](/public/images/Website%20Screenshots/Admin_Users_page.png?raw=true "Admin events Page")
+![Admin users Page](/public/images/Website%20Screenshots/Admin_users_page.jpeg?raw=true "Admin events Page")
 
 #### Button new user click on users page
 ![Admin users Page btn add](/public/images/Website%20Screenshots/Admin_Users_addUser_btn_click.png?raw=true "Admin users Page btn add")
@@ -122,11 +160,7 @@ Stays the same as on the regular user page
 ![Admin users Page btn delete](/public/images/Website%20Screenshots/Admin_Users_update_btn_click.png?raw=true "Admin users Page btn update")
 
 ### Submissions Page (No filter applied)
-![Admin submissions Page](/public/images/Website%20Screenshots/Admin_submissions_not_filtered.png?raw=true "Admin submissions Page")
+![Admin submissions Page](/public/images/Website%20Screenshots/Admin_submissions_page.jpeg?raw=true "Admin submissions Page")
 
 ### Submissions Page (Filter applied)
 ![Admin submissions Page](/public/images/Website%20Screenshots/Admin_Submissions_filtered.png?raw=true "Admin submissions Page")
-
-## Reflection
-
-[TODO: On Project Completion]
